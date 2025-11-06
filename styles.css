@@ -1,0 +1,9 @@
+/* Final Code for styles.css */
+.hero-bg-img {
+  /* CORRECTED RELATIVE WEB PATH */
+  background-image: url("./assets/Bellevue Skyline.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.45);
+}
