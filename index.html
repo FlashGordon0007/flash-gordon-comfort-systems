@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
@@ -99,7 +99,7 @@
             >About Us</a
           >
           <a
-            href="https://calendly.com/your-booking-link"
+            href="https://calendly.com/flashgordonplumbing/20min"
             target="_blank"
             rel="noopener"
             class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold hover:bg-blue-700 transition duration-300"
@@ -137,7 +137,7 @@
           class="mt-10 flex flex-col sm:flex-row flex-wrap justify-center space-y-4 sm:space-y-0 sm:space-x-4"
         >
           <a
-            href="https://calendly.com/your-booking-link"
+            href="https://calendly.com/flashgordonplumbing/20min"
             target="_blank"
             rel="noopener"
             class="bg-blue-600 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-700 transition duration-300"
@@ -226,7 +226,7 @@
                 unit. Stop worrying and get your heat back on fast!
               </p>
               <a
-                href="https://calendly.com/your-booking-link"
+                href="https://calendly.com/flashgordonplumbing/20min"
                 target="_blank"
                 rel="noopener"
                 class="mt-4 w-full text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
@@ -256,7 +256,7 @@
                 Kirkland, Bellevue, and surrounding areas.
               </p>
               <a
-                href="https://calendly.com/your-booking-link"
+                href="https://calendly.com/flashgordonplumbing/20min"
                 target="_blank"
                 rel="noopener"
                 class="mt-4 w-full text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
@@ -286,7 +286,7 @@
                 get maximum savings with minimal hassle.
               </p>
               <a
-                href="https://calendly.com/your-booking-link"
+                href="https://calendly.com/flashgordonplumbing/20min"
                 target="_blank"
                 rel="noopener"
                 class="mt-4 w-full text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
@@ -316,7 +316,7 @@
                 electrification plans in Eastside homes.
               </p>
               <a
-                href="https://calendly.com/your-booking-link"
+                href="https://calendly.com/flashgordonplumbing/20min"
                 target="_blank"
                 rel="noopener"
                 class="mt-4 w-full text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition duration-300"
@@ -363,13 +363,22 @@
               <div class="col-span-2">
                 <h3 class="text-xl font-bold">Tankless Water Heater, Gas</h3>
                 <p class="text-gray-600">
-                  Endless hot water. Standard replacement for an existing tank
-                  style water heater.
+                  Standard tank-to-tankless replacement for Eastside homes.
+                  Price depends on venting and gas configuration.
+                  <span class="block mt-1 font-semibold text-gray-800"
+                    >Midweek Install Rate (Wednesdays): $7,299 for qualifying
+                    standard swaps.</span
+                  >
                 </p>
               </div>
               <div class="text-right">
-                <span class="text-2xl font-bold text-blue-600"
-                  >From<br />$5,500</span
+                <span class="text-2xl font-bold text-blue-600">
+                  $7,900-$9,500<br /><span
+                    class="text-sm font-semibold text-gray-500"
+                    >Most installs</span
+                  >
+                </span>
+
                 >
               </div>
             </div>
@@ -427,7 +436,7 @@
           paperwork for you.
         </p>
         <a
-          href="https://calendly.com/your-booking-link"
+          href="https://calendly.com/flashgordonplumbing/20min"
           target="_blank"
           rel="noopener"
           class="bg-white text-blue-600 px-10 py-4 rounded-full text-lg font-bold hover:bg-gray-100 transition duration-300"
@@ -598,7 +607,7 @@
           again.
         </p>
         <a
-          href="https://calendly.com/your-booking-link"
+          href="https://calendly.com/flashgordonplumbing/20min"
           target="_blank"
           rel="noopener"
           class="bg-blue-600 text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-blue-700 transition duration-300"
@@ -618,7 +627,7 @@
     <footer class="bg-gray-800 text-gray-400 py-12">
       <div class="container mx-auto px-6 text-center">
         <p class="font-display text-2xl font-bold text-white mb-2">
-          FLASH GORDON COMFORT SYSTEMS
+          FLASH GORDON PLUMBING & HEATING
         </p>
         <p>
           Serving Kirkland, Bellevue, Redmond, Bothell and the Greater Eastside.
@@ -682,5 +691,22 @@
         </p>
       </div>
     </footer>
+    <a
+      href="#"
+      data-booking
+      class="fixed bottom-5 right-5 z-50 bg-blue-600 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-blue-700 transition duration-300"
+    >
+      Book Free Video Quote
+    </a>
+    <script>
+      const BOOKING_URL = "https://calendly.com/flashgordonplumbing/20min";
+
+      // Make every booking CTA go to the same place
+      document.querySelectorAll("a[data-booking]").forEach((a) => {
+        a.href = BOOKING_URL;
+        a.target = "_blank";
+        a.rel = "noopener";
+      });
+    </script>
   </body>
 </html>
