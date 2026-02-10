@@ -134,6 +134,7 @@
         </p>
 
         <div
+          id="hero-cta"
           class="mt-10 flex flex-col sm:flex-row flex-wrap justify-center space-y-4 sm:space-y-0 sm:space-x-4"
         >
           <a
@@ -691,22 +692,5 @@
         </p>
       </div>
     </footer>
-    <a
-      href="#"
-      data-booking
-      class="fixed bottom-5 right-5 z-50 bg-blue-600 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:bg-blue-700 transition duration-300"
-    >
-      Book Free Video Quote
-    </a>
-    <script>
-      const BOOKING_URL = "https://calendly.com/flashgordonplumbing/20min";
-
-      // Make every booking CTA go to the same place
-      document.querySelectorAll("a[data-booking]").forEach((a) => {
-        a.href = BOOKING_URL;
-        a.target = "_blank";
-        a.rel = "noopener";
-      });
-    </script>
   </body>
 </html>
