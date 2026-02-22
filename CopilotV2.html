@@ -256,24 +256,24 @@
         </p>
       </div>
 
-      <!-- 4 cards in one row, each 20–22.5% width, 80% height -->
+      <!-- 4 cards in one row, responsive: 1 col mobile, 2 col tablet, 4 col desktop -->
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 w-full h-[70vh]"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 w-full h-auto md:h-[70vh]"
       >
         <!-- BEFORE IMAGE -->
         <div
-          class="border border-gray-300 rounded-lg overflow-hidden flex items-center justify-center bg-white"
+          class="border border-gray-300 rounded-lg overflow-hidden flex items-center justify-center bg-white h-full"
         >
           <img
             src="assets/before-tank-closet.jpg"
             alt="Old Tank"
-            class="w-full h-[80vh] object-cover"
+            class="w-full h-auto md:h-full object-contain"
           />
         </div>
 
         <!-- BEFORE TEXT -->
         <div
-          class="border border-gray-300 rounded-lg p-3 bg-white flex flex-col justify-center text-sm leading-tight"
+          class="border border-gray-300 rounded-lg p-3 bg-white flex flex-col justify-center text-sm leading-tight h-full"
         >
           <h3 class="text-2xl font-bold mb-4 text-zinc-400">
             The Old Way <br />
@@ -289,18 +289,18 @@
 
         <!-- AFTER IMAGE -->
         <div
-          class="border border-gray-300 rounded-lg overflow-hidden flex items-center justify-center bg-white relative"
+          class="border border-gray-300 rounded-lg overflow-hidden flex items-center justify-center bg-white relative h-full"
         >
           <img
             src="assets/after-tankless-furnace.jpg"
             alt="Tankless Install"
-            class="w-full h-[80vh] object-cover"
+            class="w-full h-auto md:h-full object-contain"
           />
         </div>
 
         <!-- AFTER TEXT -->
         <div
-          class="border border-blue-500 rounded-lg p-3 bg-white flex flex-col justify-center text-sm leading-tight relative"
+          class="border border-blue-500 rounded-lg p-3 bg-white flex flex-col justify-center text-sm leading-tight relative h-full"
         >
           <div
             class="absolute top-2 right-2 bg-blue-600 text-white px-2 py-0.5 rounded-full text-[0.55rem] font-bold uppercase"
