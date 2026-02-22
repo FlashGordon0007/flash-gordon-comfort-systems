@@ -74,6 +74,8 @@
             >PLUMBING & HEATING</span
           >
         </a>
+
+        <!-- DESKTOP NAV (unchanged) -->
         <div class="hidden md:flex items-center space-x-6">
           <a
             href="#services"
@@ -101,9 +103,8 @@
           <a
             href="CopilotV2.html"
             class="text-gray-600 hover:text-blue-600 font-medium"
+            >Tank vs Tankless</a
           >
-            Tank vs Tankless
-          </a>
 
           <a
             href="https://calendly.com/flashgordonplumbing/20min"
@@ -113,10 +114,60 @@
             >Book Free Consult</a
           >
         </div>
+
+        <!-- MOBILE HAMBURGER -->
         <div class="md:hidden">
-          <!-- Mobile menu could go here -->
+          <button
+            id="mobile-menu-button"
+            class="text-gray-800 focus:outline-none"
+            aria-label="Open mobile menu"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
       </nav>
+
+      <!-- MOBILE MENU -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-white shadow-lg border-t border-gray-200"
+      >
+        <div class="px-6 py-4 space-y-4">
+          <a href="#services" class="block text-gray-700 font-medium"
+            >Services</a
+          >
+          <a href="#pricing" class="block text-gray-700 font-medium"
+            >Upfront Pricing</a
+          >
+          <a href="#rebates" class="block text-gray-700 font-medium">Rebates</a>
+          <a href="#portfolio" class="block text-gray-700 font-medium"
+            >Our Work</a
+          >
+          <a href="#about" class="block text-gray-700 font-medium">About Us</a>
+
+          <a href="CopilotV2.html" class="block text-gray-700 font-medium"
+            >Tank vs Tankless</a
+          >
+
+          <a
+            href="https://calendly.com/flashgordonplumbing/20min"
+            target="_blank"
+            rel="noopener"
+            class="block bg-blue-600 text-white text-center px-4 py-2 rounded-full font-bold hover:bg-blue-700 transition duration-300"
+            >Book Free Consult</a
+          >
+        </div>
+      </div>
     </header>
 
     <!-- HERO -->
@@ -699,5 +750,13 @@
         </p>
       </div>
     </footer>
+    <script>
+      const btn = document.getElementById("mobile-menu-button");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
   </body>
 </html>
