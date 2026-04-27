@@ -1,0 +1,991 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Services | Flash Gordon Plumbing & Heating</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #f9f5ef;
+        --warm-white: #fdfaf6;
+        --gold: #c9a96e;
+        --gold-light: #e8d5a3;
+        --gold-dark: #9a7840;
+        --walnut: #3d2b1f;
+        --walnut-light: #5c3d2b;
+        --charcoal: #1c1c1c;
+        --taupe: #8b7355;
+        --stone: #d4c4a8;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--warm-white);
+        color: var(--charcoal);
+      }
+
+      .font-serif {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      /* NAV */
+      nav {
+        background-color: #0a0a0a;
+        border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+      }
+
+      .nav-brand span:first-child {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .nav-brand span.accent {
+        color: var(--gold);
+      }
+
+      .nav-link {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold);
+      }
+
+      .nav-cta {
+        background: var(--gold);
+        color: var(--charcoal);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.5rem 1.2rem;
+        border-radius: 2px;
+        transition: background 0.2s;
+      }
+
+      .nav-cta:hover {
+        background: var(--gold-light);
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        height: 95vh;
+        min-height: 600px;
+        overflow: hidden;
+      }
+
+      .hero-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(10, 8, 5, 0.75) 0%,
+          rgba(10, 8, 5, 0.4) 60%,
+          rgba(10, 8, 5, 0.15) 100%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 5vw;
+        max-width: 760px;
+      }
+
+      .hero-eyebrow {
+        font-family: "Inter", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-headline {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        font-weight: 300;
+        line-height: 1.05;
+        color: #ffffff;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-headline em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 500px;
+        margin-bottom: 2.5rem;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--charcoal);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.9rem 2.2rem;
+        border-radius: 2px;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+
+      .btn-primary:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+      }
+
+      .btn-ghost {
+        display: inline-block;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.9rem 2.2rem;
+        border-radius: 2px;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      /* STATS BAR */
+      .stats-bar {
+        background: var(--walnut);
+        padding: 1.5rem 5vw;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 0.5rem 1rem;
+      }
+
+      .stat-number {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 0.3rem;
+      }
+
+      /* SECTION STYLES */
+      .section-eyebrow {
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold-dark);
+        margin-bottom: 0.8rem;
+      }
+
+      .section-headline {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 300;
+        line-height: 1.15;
+        color: var(--walnut);
+      }
+
+      .section-headline em {
+        font-style: italic;
+        color: var(--taupe);
+      }
+
+      .divider-gold {
+        width: 3rem;
+        height: 1px;
+        background: var(--gold);
+        margin: 1.5rem 0;
+      }
+
+      /* JENNIFER SECTION */
+      .jennifer-section {
+        background: var(--cream);
+      }
+
+      /* PHILOSOPHY SECTION */
+      .philosophy-section {
+        background: var(--walnut);
+        color: white;
+      }
+
+      .philosophy-headline {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 300;
+        line-height: 1.15;
+        color: white;
+      }
+
+      .philosophy-headline em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+
+      /* GALLERY */
+      .gallery-section {
+        background: #0a0a0a;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 3px;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        cursor: pointer;
+      }
+
+      .gallery-item.tall {
+        grid-row: span 2;
+        aspect-ratio: unset;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.04);
+      }
+
+      .gallery-item-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 8, 5, 0.7) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+        display: flex;
+        align-items: flex-end;
+        padding: 1.5rem;
+      }
+
+      .gallery-item:hover .gallery-item-overlay {
+        opacity: 1;
+      }
+
+      .gallery-caption {
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      /* SERVICES */
+      .service-card {
+        border-top: 1px solid var(--stone);
+        padding: 2rem 0;
+        transition: border-color 0.3s;
+      }
+
+      .service-card:hover {
+        border-top-color: var(--gold);
+      }
+
+      .service-number {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3rem;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1;
+      }
+
+      .service-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--walnut);
+        margin-bottom: 0.5rem;
+      }
+
+      .service-desc {
+        font-size: 0.875rem;
+        line-height: 1.7;
+        color: var(--taupe);
+      }
+
+      /* PROCESS */
+      .process-step {
+        display: flex;
+        gap: 2rem;
+        padding: 2rem 0;
+        border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+      }
+
+      .process-num {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 4rem;
+        font-weight: 300;
+        color: var(--gold);
+        line-height: 1;
+        min-width: 3rem;
+      }
+
+      /* TESTIMONIAL */
+      .testimonial-section {
+        background: var(--cream);
+      }
+
+      .testimonial-quote {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.3rem, 3vw, 2rem);
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1.5;
+        color: var(--walnut);
+      }
+
+      /* CTA SECTION */
+      .cta-section {
+        background: linear-gradient(135deg, var(--walnut) 0%, #2a1a0f 100%);
+      }
+
+      /* FOOTER */
+      footer {
+        background: #0a0a0a;
+        border-top: 1px solid rgba(201, 169, 110, 0.15);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery-item.tall {
+          grid-row: span 1;
+          aspect-ratio: 4/3;
+        }
+        .hero-content {
+          padding: 0 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <a href="/" class="nav-brand flex items-baseline gap-1">
+          <span>FLASH GORDON</span>
+          <span class="accent ml-2 text-sm font-normal tracking-widest"
+            >PLUMBING & HEATING</span
+          >
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="/" class="nav-link">Services</a>
+          <a href="/#pricing" class="nav-link">Pricing</a>
+          <a href="/#rebates" class="nav-link">Rebates</a>
+          <a href="/#work" class="nav-link">Our Work</a>
+          <a href="/design.html" class="nav-link active">Design</a>
+          <a href="/#about" class="nav-link">About</a>
+        </div>
+        <a href="tel:2063372499" class="nav-cta">Book Free Consult</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <img
+        class="hero-img"
+        src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/a63c68794_photo_29_2026-04-27_01-35-51.jpg"
+        alt="Luxury master bathroom with Calacatta marble and brass fixtures"
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Flash Gordon Design Services</p>
+        <h1 class="hero-headline">
+          Your bathroom.<br />
+          <em>Reimagined.</em>
+        </h1>
+        <p class="hero-sub">
+          Elite interior design meets master-certified installation. We
+          transform bathrooms and living spaces into works of art — in as little
+          as a week. Bathtubs and showers can be redesigned without moving
+          plumbing. Lighting is designed as part of the space, not an
+          afterthought. We handle everything from concept to completion with one
+          team, one vision, and zero headaches.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#consult" class="btn-primary">Book a Design Consult</a>
+          <a href="#gallery" class="btn-ghost">View Our Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+      <div
+        class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 divide-x divide-white/10"
+      >
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Luxury Projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30</div>
+          <div class="stat-label">Years of Craft</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2 wks</div>
+          <div class="stat-label">Avg. Completion</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Team. All Trades.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JENNIFER INTRO -->
+    <section class="jennifer-section py-24 px-6">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="section-eyebrow">Meet Your Designer</p>
+          <h2 class="section-headline">
+            Jennifer KudiJaroff<br /><em>Color is her language.</em>
+          </h2>
+          <div class="divider-gold"></div>
+          <p class="text-sm leading-relaxed text-gray-600 mb-4">
+            Jennifer doesn't have a signature style — she has a signature
+            process. She starts with what you love most. A painting. A fabric. A
+            memory. Then she builds your entire space around it, pulling colors,
+            textures, and light until your home feels like it was always meant
+            to look exactly this way.
+          </p>
+          <p class="text-sm leading-relaxed text-gray-600 mb-4">
+            She has designed $100,000 kitchens and $15,000 kitchens. Both look
+            like they belong in a magazine. The difference is never the budget —
+            it's the eye and comes down to the details that high quality
+            materials last longer and can take more punishment.
+          </p>
+          <p class="text-sm leading-relaxed text-gray-600 mb-8">
+            Jennifer is a master of lighting design. Under-counter, toe-kick,
+            accent, art lighting, dimmers — she thinks about every bulb and
+            every shadow. She'll go shopping with you. She'll hold the swatch up
+            to your wall at 3pm and then again at 7pm. She will shop online like
+            a bloodhound and won't sign off until it's right.
+          </p>
+          <a
+            href="#consult"
+            class="btn-primary"
+            style="background: var(--walnut); color: white"
+            >Work With Jennifer</a
+          >
+        </div>
+        <div class="relative">
+          <div
+            class="absolute -top-4 -left-4 w-full h-full border border-[#C9A96E] opacity-30 rounded-sm"
+          ></div>
+          <img
+            src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/a63c68794_photo_29_2026-04-27_01-35-51.jpg"
+            alt="Luxury bathroom design detail"
+            class="w-full h-96 object-cover rounded-sm shadow-2xl relative z-10"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="philosophy-section py-24 px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <p
+          class="text-xs font-medium tracking-[0.25em] uppercase text-[#C9A96E] mb-6"
+        >
+          Our Philosophy
+        </p>
+        <h2 class="philosophy-headline mb-8">
+          Every space we touch is <em>one of a kind.</em><br />
+          We never design the same thing twice.
+        </h2>
+        <p
+          class="text-sm leading-relaxed text-white/70 max-w-2xl mx-auto mb-12"
+        >
+          We believe your home should tell your story, not copy someone else's
+          Pinterest board. When Jennifer sits down with you, she's listening for
+          the color that makes your eyes light up, the texture that feels like
+          you, the lighting mood that makes 6pm feel like magic.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          <div class="border-t border-[#C9A96E]/30 pt-6">
+            <div class="text-[#C9A96E] text-2xl mb-3">✦</div>
+            <h3 class="font-serif text-xl text-white mb-2">
+              Paint-to-Space Design
+            </h3>
+            <p class="text-sm text-white/60 leading-relaxed">
+              Your favorite painting becomes the palette. Colors, mood, and
+              texture — all drawn from what already moves you.
+            </p>
+          </div>
+          <div class="border-t border-[#C9A96E]/30 pt-6">
+            <div class="text-[#C9A96E] text-2xl mb-3">✦</div>
+            <h3 class="font-serif text-xl text-white mb-2">
+              Master Light Architecture
+            </h3>
+            <p class="text-sm text-white/60 leading-relaxed">
+              Under-counter, toe-kick, accent, art, and task lighting — designed
+              as part of the space, not added as an afterthought.
+            </p>
+          </div>
+          <div class="border-t border-[#C9A96E]/30 pt-6">
+            <div class="text-[#C9A96E] text-2xl mb-3">✦</div>
+            <h3 class="font-serif text-xl text-white mb-2">
+              Design + Build in One
+            </h3>
+            <p class="text-sm text-white/60 leading-relaxed">
+              One team. Master plumber, electrician, tile setter, carpenter, and
+              designer. No handoffs, no surprises, no broken visions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery-section py-3">
+      <div class="max-w-7xl mx-auto px-3">
+        <div class="text-center py-12">
+          <p
+            class="text-xs font-medium tracking-[0.25em] uppercase text-[#C9A96E] mb-3"
+          >
+            Portfolio
+          </p>
+          <h2 class="font-serif text-4xl font-light text-white">
+            The Work Speaks.
+          </h2>
+        </div>
+        <div class="gallery-grid">
+          <!-- Photo 1 - Main bath wide shot, tall -->
+          <div class="gallery-item tall">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/a63c68794_photo_29_2026-04-27_01-35-51.jpg"
+              alt="Bellevue Master Bath — Calacatta marble, freestanding soaker, brass fixtures"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Bellevue Master Bath · Calacatta Marble</span
+              >
+            </div>
+          </div>
+          <!-- Photo 2 - Floor drain detail -->
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/69ceb718c_photo_30_2026-04-27_01-35-51.jpg"
+              alt="Curbless shower floor — Calacatta marble"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Curbless Shower · Marble Floor</span
+              >
+            </div>
+          </div>
+          <!-- Photo 3 - Star pattern drain -->
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/12c83722e_photo_31_2026-04-27_01-35-51.jpg"
+              alt="Geometric star tile pattern around center drain"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Geometric Drain Detail · Custom Cut</span
+              >
+            </div>
+          </div>
+          <!-- Photo 4 - Adorne dimmer switch -->
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/9de36f15e_photo_32_2026-04-27_01-35-51.jpg"
+              alt="Adorne collection smart dimmer switch"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Adorne Smart Dimmer · LeGrand Collection</span
+              >
+            </div>
+          </div>
+          <!-- Photo 5 - Smart panel -->
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/446e6fcd2_photo_33_2026-04-27_01-35-51.jpg"
+              alt="Smart home lighting control panel"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption">Smart Home Lighting Control</span>
+            </div>
+          </div>
+          <!-- Photo 6 - Pop-out outlets -->
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/776d4229d_photo_34_2026-04-27_01-35-51.jpg"
+              alt="LeGrand Adorne pop-out outlets with USB"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >LeGrand Adorne Outlets · Detail</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="py-24 px-6 bg-[var(--warm-white)]">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <p class="section-eyebrow">What We Do</p>
+            <h2 class="section-headline">
+              Fast turnarounds.<br /><em>Unforgettable results.</em>
+            </h2>
+            <div class="divider-gold"></div>
+            <p class="text-sm leading-relaxed text-gray-500 max-w-sm">
+              We focus on high-impact transformations that can be designed and
+              built in days, not months. Because life is too short to live with
+              a bathroom you don't love.
+            </p>
+          </div>
+          <div>
+            <div class="service-card">
+              <div class="flex gap-6 items-start">
+                <span class="service-number">01</span>
+                <div>
+                  <h3 class="service-title">Curbless Shower Transformation</h3>
+                  <p class="service-desc">
+                    From demo to done in 5–10 days. We remove the curb, set a
+                    custom-sloped mud bed, lay large-format tile, and install
+                    frameless glass. The result looks like a high-end hotel —
+                    forever.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="flex gap-6 items-start">
+                <span class="service-number">02</span>
+                <div>
+                  <h3 class="service-title">Bathroom Facelift</h3>
+                  <p class="service-desc">
+                    New vanity, new fixtures, new tile, new lighting — all
+                    coordinated by Jennifer. We can transform the look of a
+                    bathroom in under two weeks without touching the plumbing
+                    rough-in.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="flex gap-6 items-start">
+                <span class="service-number">03</span>
+                <div>
+                  <h3 class="service-title">Designer Lighting Upgrade</h3>
+                  <p class="service-desc">
+                    Under-counter, toe-kick, accent, art, and recessed lighting
+                    on smart dimmers installed by a master electrician. We use
+                    the LeGrand Adorne collection — the detail that makes
+                    visitors stop and ask questions.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="flex gap-6 items-start">
+                <span class="service-number">04</span>
+                <div>
+                  <h3 class="service-title">Full Master Bath Renovation</h3>
+                  <p class="service-desc">
+                    Full custom renovation projects — complete design and build.
+                    Freestanding soakers, curbless walk-in showers, matched
+                    marble floor-to-ceiling, custom vanities, custome built
+                    cabinets, from the hardware to the glass. Two to four weeks
+                    start to finish.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial-section py-24 px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="text-5xl text-[#C9A96E] font-serif mb-8 opacity-40">"</div>
+        <p class="testimonial-quote mb-8">
+          Gordon and his team turned our master bath into something out of
+          Architectural Digest. The marble work, the lighting, the details — we
+          had no idea our home could look like this. Jennifer understood what we
+          wanted before we even knew how to say it.
+        </p>
+        <div class="divider-gold mx-auto"></div>
+        <p class="text-xs tracking-widest uppercase text-[var(--taupe)] mt-6">
+          Bellevue Lifestyle Magazine Feature Project
+        </p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="py-24 px-6 bg-[var(--cream)]">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <p class="section-eyebrow">How It Works</p>
+          <h2 class="section-headline">
+            Simple. <em>Transparent. Beautiful.</em>
+          </h2>
+        </div>
+        <div>
+          <div class="process-step">
+            <div class="process-num">1</div>
+            <div class="pt-3">
+              <h3 class="font-serif text-xl text-[var(--walnut)] mb-2">
+                60-Minute Design Consultation
+              </h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                Tell us what you love. Bring a painting, a photo, a magazine
+                page. Jennifer listens, asks the right questions, and starts
+                seeing your space.
+              </p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-num">2</div>
+            <div class="pt-3">
+              <h3 class="font-serif text-xl text-[var(--walnut)] mb-2">
+                Get your Computer drafted Design Concept & Firm Quote
+              </h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                We present a full design direction with materials, fixtures, and
+                finishes — and a locked price with no surprise upsells. You
+                approve it or we revise it. Simple.
+              </p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-num">3</div>
+            <div class="pt-3">
+              <h3 class="font-serif text-xl text-[var(--walnut)] mb-2">
+                We Build It
+              </h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                One crew. Plumbing, tile, electrical, and finishing — all
+                coordinated so your project doesn't stall waiting for a sub.
+                Most showers and bathtubs done in: 5–14 days. Most bathrooms
+                done in 2-4 weeks.
+              </p>
+            </div>
+          </div>
+          <div class="process-step" style="border-bottom: none">
+            <div class="process-num">4</div>
+            <div class="pt-3">
+              <h3 class="font-serif text-xl text-[var(--walnut)] mb-2">
+                You Live In It
+              </h3>
+              <p class="text-sm text-gray-500 leading-relaxed">
+                We clean up completely before we leave. Your new bathroom is
+                yours to enjoy — and show off. We're hoping for photos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="consult" class="cta-section py-24 px-6">
+      <div class="max-w-3xl mx-auto text-center">
+        <p
+          class="text-xs font-medium tracking-[0.25em] uppercase text-[#C9A96E] mb-6"
+        >
+          Ready to Start?
+        </p>
+        <h2 class="font-serif text-4xl md:text-5xl font-light text-white mb-6">
+          Let's design something<br /><em class="text-[#E8D5A3]"
+            >you'll never want to leave.</em
+          >
+        </h2>
+        <p class="text-sm text-white/70 mb-10 leading-relaxed max-w-lg mx-auto">
+          Schedule a 60-minute design consultation with Jennifer and Gordon.
+          We'll look at your space, talk about what you love, and give you a
+          clear idea of what's possible — and what it costs.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="tel:2063372499" class="btn-primary text-center"
+            >Call 206-337-2499</a
+          >
+          <a
+            href="mailto:flashgordonplumbing@gmail.com?subject=Design%20Consult%20Request"
+            class="btn-ghost text-center"
+            >Email Us Instead</a
+          >
+        </div>
+        <p class="text-xs text-white/40 mt-8">
+          No pressure. No commitment. Just a real conversation about your space.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10"
+        >
+          <div>
+            <div class="nav-brand flex items-baseline gap-1 mb-3">
+              <span class="text-white font-bold tracking-wider uppercase"
+                >Flash Gordon</span
+              >
+              <span class="text-[#C9A96E] text-sm tracking-widest ml-2"
+                >Plumbing & Heating</span
+              >
+            </div>
+            <p class="text-xs text-white/40 max-w-xs leading-relaxed">
+              Master-certified plumbing, HVAC, electrical & design services
+              serving Kirkland, Bellevue, and the Greater Eastside.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <p
+                class="text-xs font-medium tracking-widest uppercase text-[#C9A96E] mb-3"
+              >
+                Services
+              </p>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="/"
+                    class="text-xs text-white/50 hover:text-white/80 transition-colors"
+                    >HVAC & Heating</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    class="text-xs text-white/50 hover:text-white/80 transition-colors"
+                    >Tankless Water Heaters</a
+                  >
+                </li>
+                <li>
+                  <a href="/design.html" class="text-xs text-white/80"
+                    >Design Services</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p
+                class="text-xs font-medium tracking-widest uppercase text-[#C9A96E] mb-3"
+              >
+                Contact
+              </p>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="tel:2063372499"
+                    class="text-xs text-white/50 hover:text-white/80 transition-colors"
+                    >206-337-2499</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="mailto:flashgordonplumbing@gmail.com"
+                    class="text-xs text-white/50 hover:text-white/80 transition-colors"
+                    >flashgordonplumbing@gmail.com</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-xs text-white/30">
+            © 2025 Flash Gordon Plumbing & Heating. All rights reserved.
+            Licensed, bonded and insured.
+          </p>
+          <p class="text-xs text-white/20">
+            Design by Flash Gordon × Jennifer KudiJaroff
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
