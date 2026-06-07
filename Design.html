@@ -63,6 +63,31 @@
     <style>
       /* ── Only styles Tailwind utilities can't handle ── */
 
+      /* ── Animated Hamburger ─────────────────────── */
+      .ham-bar {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: #c9a84c;
+        border-radius: 2px;
+        transition:
+          transform 0.35s ease,
+          opacity 0.25s ease,
+          width 0.25s ease;
+        transform-origin: center;
+        margin: 3px 0;
+      }
+      #mobile-menu-button.open #ham-top {
+        transform: translateY(8px) rotate(45deg);
+      }
+      #mobile-menu-button.open #ham-mid {
+        opacity: 0;
+        width: 0;
+      }
+      #mobile-menu-button.open #ham-bot {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
       /* Before/After Slider */
       .ba-container {
         position: relative;
@@ -307,23 +332,15 @@
           >
             Book Design Consult
           </a>
-          <!-- Hamburger — mobile only -->
+          <!-- Hamburger — mobile only (animated morph to ×) -->
           <button
             id="mobile-menu-button"
-            class="md:hidden text-white focus:outline-none"
-            aria-label="Open mobile menu"
+            class="md:hidden flex flex-col justify-center items-center w-10 h-10 focus:outline-none z-50"
+            aria-label="Toggle mobile menu"
           >
-            <svg
-              class="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+            <span id="ham-top" class="ham-bar"></span>
+            <span id="ham-mid" class="ham-bar"></span>
+            <span id="ham-bot" class="ham-bar"></span>
           </button>
         </div>
       </div>
@@ -2672,8 +2689,11 @@
       // ── Mobile menu toggle ──
       document
         .getElementById("mobile-menu-button")
-        .addEventListener("click", () => {
+        .addEventListener("click", function () {
           document.getElementById("mobile-menu").classList.toggle("hidden");
+          document
+            .getElementById("mobile-menu-button")
+            .classList.toggle("open");
         });
 
       // ── Lightbox ──

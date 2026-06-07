@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book a Design Consultation | Flash Gordon Design Services</title>
+    <meta
+      name="description"
+      content="Schedule your paid design consultation with Jennifer and Gordon. One hour. Clear direction. Your space transformed."
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Book a Design Consultation | Flash Gordon Design Services"
+    />
+    <meta
+      property="og:description"
+      content="Schedule your paid design consultation with Jennifer and Gordon."
+    />
+    <meta
+      property="og:image"
+      content="https://flashgordonplumbing.com/assets/img/hero-bath.jpg"
+    />
+    <meta property="og:url" content="https://flashgordonplumbing.com/booking" />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Shared stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0f0f0f;
+        color: #e8e0d0;
+      }
+      .font-display {
+        font-family: "Cormorant Garamond", serif;
+      }
+      .gold {
+        color: #c9a84c;
+      }
+      .bg-gold {
+        background-color: #c9a84c;
+      }
+      .border-gold {
+        border-color: #c9a84c;
+      }
+
+      /* Form inputs */
+      .form-input {
+        width: 100%;
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 4px;
+        padding: 0.75rem 1rem;
+        color: #e8e0d0;
+        font-family: "Inter", sans-serif;
+        font-size: 0.95rem;
+        transition: border-color 0.2s ease;
+        outline: none;
+      }
+      .form-input:focus {
+        border-color: #c9a84c;
+      }
+      .form-input::placeholder {
+        color: #555;
+      }
+      select.form-input option {
+        background-color: #1a1a1a;
+        color: #e8e0d0;
+      }
+      .form-label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #999;
+        margin-bottom: 0.4rem;
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Checkbox custom style */
+      .check-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        cursor: pointer;
+      }
+      .check-item input[type="checkbox"] {
+        accent-color: #c9a84c;
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+        flex-shrink: 0;
+        cursor: pointer;
+      }
+      .check-item span {
+        font-size: 0.9rem;
+        color: #ccc;
+        line-height: 1.5;
+      }
+
+      /* Submit button */
+      .btn-gold {
+        background-color: #c9a84c;
+        color: #0f0f0f;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 1rem 2.5rem;
+        border: none;
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          transform 0.1s ease;
+      }
+      .btn-gold:hover {
+        background-color: #b8922f;
+      }
+      .btn-gold:active {
+        transform: scale(0.98);
+      }
+
+      /* Mobile menu */
+      #mobile-menu {
+        background-color: #0f0f0f;
+        border-top: 1px solid #2a2a2a;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ── NAV ── -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-[#0f0f0f] border-b border-[#2a2a2a]"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <!-- Logo -->
+        <a href="/Design" class="flex flex-col leading-none">
+          <span
+            class="font-bold text-white text-lg tracking-widest uppercase"
+            style="font-family: &quot;Inter&quot;, sans-serif"
+          >
+            FLASH GORDON
+          </span>
+          <span class="text-xs tracking-widest uppercase gold">DESIGNS</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <div
+          class="hidden md:flex items-center gap-8 text-xs tracking-widest uppercase text-gray-300"
+        >
+          <a href="/Design#services" class="hover:text-white transition-colors"
+            >Services</a
+          >
+          <a href="/Design#pricing" class="hover:text-white transition-colors"
+            >Pricing</a
+          >
+          <a href="/Design#portfolio" class="hover:text-white transition-colors"
+            >Our Work</a
+          >
+          <a href="/Design#about" class="hover:text-white transition-colors"
+            >About</a
+          >
+          <a href="tel:4256662557" class="hover:text-white transition-colors"
+            >425-666-2557</a
+          >
+        </div>
+
+        <!-- Desktop CTA -->
+        <a
+          href="https://calendly.com/flashgordonplumbing/new-meeting"
+          target="_blank"
+          rel="noopener"
+          class="hidden md:inline-block border border-[#c9a84c] text-[#c9a84c] text-xs tracking-widest uppercase px-5 py-2.5 hover:bg-[#c9a84c] hover:text-black transition-all duration-200"
+        >
+          BOOK DESIGN CONSULT
+        </a>
+
+        <!-- Hamburger — mobile only -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden flex flex-col justify-center items-center w-10 h-10 focus:outline-none z-50"
+          aria-label="Toggle mobile menu"
+        >
+          <span id="ham-top" class="ham-bar"></span>
+          <span id="ham-mid" class="ham-bar"></span>
+          <span id="ham-bot" class="ham-bar"></span>
+        </button>
+      </div>
+
+      <!-- Mobile dropdown -->
+      <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2">
+        <div
+          class="flex flex-col gap-5 text-sm tracking-widest uppercase text-gray-300"
+        >
+          <a href="/Design#services" class="hover:text-white transition-colors"
+            >Services</a
+          >
+          <a href="/Design#pricing" class="hover:text-white transition-colors"
+            >Pricing</a
+          >
+          <a href="/Design#portfolio" class="hover:text-white transition-colors"
+            >Our Work</a
+          >
+          <a href="/Design#about" class="hover:text-white transition-colors"
+            >About</a
+          >
+          <a href="tel:4256662557" class="gold font-medium">425-666-2557</a>
+          <a
+            href="https://calendly.com/flashgordonplumbing/new-meeting"
+            target="_blank"
+            rel="noopener"
+            class="border border-[#c9a84c] text-[#c9a84c] text-center px-4 py-3 hover:bg-[#c9a84c] hover:text-black transition-all duration-200"
+          >
+            BOOK DESIGN CONSULT
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="pt-32 pb-16 px-6 text-center border-b border-[#2a2a2a]">
+      <p class="gold text-xs tracking-[0.25em] uppercase mb-4">
+        Design Consultation
+      </p>
+      <h1
+        class="font-display text-5xl md:text-6xl text-white mb-6"
+        style="font-family: &quot;Cormorant Garamond&quot;, serif"
+      >
+        Let's design something<br />
+        <em>you'll never want to leave.</em>
+      </h1>
+      <p
+        class="text-gray-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed"
+      >
+        Fill out the form below and we'll confirm your consultation within one
+        business day. The consult fee is credited toward your project if you
+        move forward.
+      </p>
+    </section>
+
+    <!-- ── BOOKING FORM ── -->
+    <section class="py-16 px-6">
+      <div class="max-w-2xl mx-auto">
+        <!-- Section header -->
+        <div class="mb-10">
+          <p class="gold text-xs tracking-[0.25em] uppercase mb-2">
+            Step 1 of 1
+          </p>
+          <h2
+            class="font-display text-3xl text-white"
+            style="font-family: &quot;Cormorant Garamond&quot;, serif"
+          >
+            Tell us about your project
+          </h2>
+          <p class="text-gray-500 text-sm mt-2">
+            All fields required unless marked optional.
+          </p>
+        </div>
+
+        <!-- Netlify form -->
+        <form
+          name="design-consultation"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/success"
+          enctype="multipart/form-data"
+        >
+          <!-- Netlify hidden fields -->
+          <input type="hidden" name="form-name" value="design-consultation" />
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <!-- ── CONTACT INFO ── -->
+          <div class="mb-10">
+            <p
+              class="text-xs tracking-[0.2em] uppercase text-gray-500 mb-6 pb-2 border-b border-[#2a2a2a]"
+            >
+              Contact Information
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+              <div class="form-group">
+                <label class="form-label" for="first-name">First Name</label>
+                <input
+                  id="first-name"
+                  name="first-name"
+                  type="text"
+                  class="form-input"
+                  placeholder="Jennifer"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="last-name">Last Name</label>
+                <input
+                  id="last-name"
+                  name="last-name"
+                  type="text"
+                  class="form-input"
+                  placeholder="Smith"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                class="form-input"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                class="form-input"
+                placeholder="(425) 555-0100"
+                required
+              />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+              <div class="form-group">
+                <label class="form-label" for="city">City</label>
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  class="form-input"
+                  placeholder="Kirkland"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="state">State</label>
+                <input
+                  id="state"
+                  name="state"
+                  type="text"
+                  class="form-input"
+                  placeholder="WA"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- ── PROJECT INFO ── -->
+          <div class="mb-10">
+            <p
+              class="text-xs tracking-[0.2em] uppercase text-gray-500 mb-6 pb-2 border-b border-[#2a2a2a]"
+            >
+              Project Details
+            </p>
+
+            <div class="form-group">
+              <label class="form-label" for="project-type">Project Type</label>
+              <select
+                id="project-type"
+                name="project-type"
+                class="form-input"
+                required
+              >
+                <option value="" disabled selected>
+                  Select a project type
+                </option>
+                <option value="master-bath">Master Bath Renovation</option>
+                <option value="curbless-shower">
+                  Curbless Shower Transformation
+                </option>
+                <option value="bathroom-facelift">Bathroom Facelift</option>
+                <option value="lighting-upgrade">
+                  Designer Lighting Upgrade
+                </option>
+                <option value="kitchen">Kitchen Remodel</option>
+                <option value="fireplace">Flare Fireplace Installation</option>
+                <option value="full-remodel">Full Room Remodel</option>
+                <option value="other">Other / Not Sure Yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="budget">Approximate Budget</label>
+              <select id="budget" name="budget" class="form-input" required>
+                <option value="" disabled selected>
+                  Select a budget range
+                </option>
+                <option value="under-10k">Under $10,000</option>
+                <option value="10k-25k">$10,000 – $25,000</option>
+                <option value="25k-50k">$25,000 – $50,000</option>
+                <option value="50k-100k">$50,000 – $100,000</option>
+                <option value="100k-plus">$100,000+</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="timeline"
+                >Desired Start Timeline</label
+              >
+              <select id="timeline" name="timeline" class="form-input" required>
+                <option value="" disabled selected>
+                  When do you want to start?
+                </option>
+                <option value="asap">As soon as possible</option>
+                <option value="1-3-months">1–3 months</option>
+                <option value="3-6-months">3–6 months</option>
+                <option value="6-plus-months">
+                  6+ months / planning phase
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="preferred-date"
+                >Preferred Consultation Date
+                <span class="normal-case text-gray-600">(optional)</span></label
+              >
+              <input
+                id="preferred-date"
+                name="preferred-date"
+                type="date"
+                class="form-input"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="preferred-time"
+                >Preferred Time of Day
+                <span class="normal-case text-gray-600">(optional)</span></label
+              >
+              <select
+                id="preferred-time"
+                name="preferred-time"
+                class="form-input"
+              >
+                <option value="" disabled selected>
+                  Select a time preference
+                </option>
+                <option value="morning">Morning (8am – 12pm)</option>
+                <option value="afternoon">Afternoon (12pm – 4pm)</option>
+                <option value="evening">Evening (4pm – 7pm)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ── SERVICES OF INTEREST ── -->
+          <div class="mb-10">
+            <p
+              class="text-xs tracking-[0.2em] uppercase text-gray-500 mb-6 pb-2 border-b border-[#2a2a2a]"
+            >
+              Services of Interest
+              <span class="normal-case">(check all that apply)</span>
+            </p>
+
+            <label class="check-item">
+              <input
+                type="checkbox"
+                name="services[]"
+                value="design-consultation"
+              />
+              <span>
+                <strong class="text-white">Design Consultation</strong>
+                <br />
+                <span class="text-gray-500 text-xs"
+                  >1 hour with Jennifer & Gordon · $250 · credited toward
+                  drawings or build if you proceed</span
+                >
+              </span>
+            </label>
+
+            <label class="check-item">
+              <input
+                type="checkbox"
+                name="services[]"
+                value="design-drawings"
+              />
+              <span>
+                <strong class="text-white">Design Drawings & Renderings</strong>
+                <br />
+                <span class="text-gray-500 text-xs"
+                  >Scaled floor plans, material schedules, fixture layouts &
+                  photorealistic computer renderings · starting at $1,500 ·
+                  typically ~10% of total project cost</span
+                >
+              </span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="services[]" value="tile-work" />
+              <span>Custom Tile & Stone Work</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="services[]" value="plumbing" />
+              <span>Plumbing (fixtures, rough-in, curbless conversion)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="services[]" value="lighting" />
+              <span>Lighting Design & Electrical</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="services[]" value="cabinetry" />
+              <span>Cabinetry & Vanity</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="services[]" value="fireplace" />
+              <span>Flare Modern Fireplace</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="services[]" value="smart-home" />
+              <span>Smart Home Integration (LeGrand Adorne, dimmers)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="services[]" value="radiant-heat" />
+              <span>In-Floor Radiant Heat</span>
+            </label>
+          </div>
+
+          <!-- ── PROJECT DESCRIPTION ── -->
+          <div class="mb-10">
+            <p
+              class="text-xs tracking-[0.2em] uppercase text-gray-500 mb-6 pb-2 border-b border-[#2a2a2a]"
+            >
+              Tell Us More
+            </p>
+
+            <div class="form-group">
+              <label class="form-label" for="description"
+                >Describe your project
+                <span class="normal-case text-gray-600">(optional)</span></label
+              >
+              <textarea
+                id="description"
+                name="description"
+                rows="5"
+                class="form-input resize-none"
+                placeholder="Tell us about the space, what you love, what you want to change, any inspiration you have..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"
+                >Upload Photos
+                <span class="normal-case text-gray-600"
+                  >(optional — current space, inspiration images)</span
+                ></label
+              >
+              <input
+                type="file"
+                name="photos"
+                multiple
+                accept="image/*"
+                class="form-input cursor-pointer file:mr-4 file:py-1 file:px-3 file:border-0 file:text-xs file:font-medium file:bg-[#c9a84c] file:text-black file:cursor-pointer hover:file:bg-[#b8922f]"
+              />
+            </div>
+          </div>
+
+          <!-- ── HOW DID YOU HEAR ── -->
+          <div class="mb-10">
+            <div class="form-group">
+              <label class="form-label" for="referral"
+                >How did you hear about us?
+                <span class="normal-case text-gray-600">(optional)</span></label
+              >
+              <select id="referral" name="referral" class="form-input">
+                <option value="" disabled selected>Select one</option>
+                <option value="google">Google Search</option>
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="houzz">Houzz</option>
+                <option value="referral">Friend or Family Referral</option>
+                <option value="existing-customer">Existing Customer</option>
+                <option value="nextdoor">Nextdoor</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ── SUBMIT ── -->
+          <div class="border-t border-[#2a2a2a] pt-8">
+            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+              By submitting this form you're requesting a paid design
+              consultation ($250 – credited toward your project). We'll reach
+              out within one business day to confirm your date and send a
+              payment link.
+            </p>
+            <button type="submit" class="btn-gold w-full sm:w-auto">
+              REQUEST MY CONSULTATION →
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ── TRUST STRIP ── -->
+    <section class="border-t border-[#2a2a2a] py-12 px-6">
+      <div
+        class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center"
+      >
+        <div>
+          <p
+            class="gold text-3xl font-display mb-2"
+            style="font-family: &quot;Cormorant Garamond&quot;, serif"
+          >
+            $250
+          </p>
+          <p class="text-xs tracking-widest uppercase text-gray-400">
+            Consultation Fee
+          </p>
+          <p class="text-gray-600 text-sm mt-2">
+            Credited toward your project if you move forward
+          </p>
+        </div>
+
+        <div>
+          <p
+            class="gold text-3xl font-display mb-2"
+            style="font-family: &quot;Cormorant Garamond&quot;, serif"
+          >
+            1 hr
+          </p>
+          <p class="text-xs tracking-widest uppercase text-gray-400">
+            With Jennifer & Gordon
+          </p>
+          <p class="text-gray-600 text-sm mt-2">
+            In your space. Real answers. Clear direction.
+          </p>
+        </div>
+
+        <div>
+          <p
+            class="gold text-3xl font-display mb-2"
+            style="font-family: &quot;Cormorant Garamond&quot;, serif"
+          >
+            33 yrs
+          </p>
+          <p class="text-xs tracking-widest uppercase text-gray-400">
+            Master-Certified Experience
+          </p>
+          <p class="text-gray-600 text-sm mt-2">
+            Licensed, bonded, insured. One team. All trades.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PREFER TO CALL? ── -->
+    <section class="border-t border-[#2a2a2a] py-16 px-6 text-center">
+      <p class="text-gray-500 text-sm tracking-widest uppercase mb-4">
+        Prefer to talk first?
+      </p>
+      <h2
+        class="font-display text-4xl text-white mb-6"
+        style="font-family: &quot;Cormorant Garamond&quot;, serif"
+      >
+        We're happy to answer questions<br class="hidden sm:block" />
+        before you book.
+      </h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="tel:4256662557" class="btn-gold inline-block">
+          CLICK TO CALL · 425-666-2557
+        </a>
+        <a
+          href="https://calendly.com/flashgordonplumbing/new-meeting"
+          target="_blank"
+          rel="noopener"
+          class="inline-block border border-[#c9a84c] text-[#c9a84c] text-xs tracking-widest uppercase px-8 py-4 hover:bg-[#c9a84c] hover:text-black transition-all duration-200"
+        >
+          BOOK VIA CALENDLY INSTEAD →
+        </a>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="border-t border-[#2a2a2a] bg-[#0a0a0a] px-6 py-12">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+          <!-- Contact -->
+          <div>
+            <p class="text-xs tracking-[0.2em] uppercase text-gray-600 mb-4">
+              Contact
+            </p>
+            <p class="text-xs tracking-widest uppercase text-gray-500 mb-1">
+              Click to call
+            </p>
+            <a
+              href="tel:4256662557"
+              class="text-white text-lg font-medium tracking-wide hover:text-[#c9a84c] transition-colors whitespace-nowrap"
+            >
+              425-666-2557
+            </a>
+            <br />
+            <a
+              href="mailto:flashgordonplumbing@gmail.com"
+              class="text-gray-400 text-sm hover:text-white transition-colors mt-1 inline-block"
+            >
+              flashgordonplumbing@gmail.com
+            </a>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <p class="text-xs tracking-[0.2em] uppercase text-gray-600 mb-4">
+              Services
+            </p>
+            <ul class="space-y-2 text-sm text-gray-400">
+              <li>
+                <a href="/Design" class="hover:text-white transition-colors"
+                  >Design Services</a
+                >
+              </li>
+              <li>
+                <a href="/#services" class="hover:text-white transition-colors"
+                  >HVAC &amp; Heating</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/tank-vs-tankless"
+                  class="hover:text-white transition-colors"
+                  >Tankless Water Heaters</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div
+          class="border-t border-[#2a2a2a] pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3"
+        >
+          <p class="text-gray-600 text-xs">
+            © 2025 Flash Gordon Plumbing &amp; Heating. All rights reserved.
+            Licensed, bonded and insured.
+          </p>
+          <p
+            class="text-xs text-[#a08840]"
+            style="
+              font-family: &quot;Cormorant Garamond&quot;, serif;
+              font-style: italic;
+            "
+          >
+            Design by Flash Gordon × Jennifer Kudijaroff
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ── JAVASCRIPT ── -->
+    <script>
+      // ── Mobile menu toggle ──
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+          document
+            .getElementById("mobile-menu-button")
+            .classList.toggle("open");
+        });
+    </script>
+  </body>
+</html>
