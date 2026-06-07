@@ -2079,7 +2079,7 @@
     </section>
 
     <!-- ══════════════════════════════════════════
-       FLARE FIREPLACE
+       FLARE FIREPLACE — Video Modal
   ══════════════════════════════════════════ -->
     <section class="py-20 md:py-28 px-6 bg-[#0d0d0d]">
       <div
@@ -2125,21 +2125,115 @@
             Ask About a Fireplace
           </a>
         </div>
+
+        <!-- Video thumbnail with play button — opens modal on click -->
+        <div
+          class="relative w-full group cursor-pointer"
+          id="fireplace-thumb"
+          onclick="openFireplaceModal()"
+        >
+          <!-- Thumbnail image — Vimeo provides this, or use any still from the video -->
+          <div
+            class="relative w-full rounded-sm overflow-hidden shadow-2xl"
+            style="aspect-ratio: 16/9"
+          >
+            <img
+              src="https://vumbnail.com/269665958.jpg"
+              alt="Flare Modern Fireplace — click to watch installation video"
+              class="w-full h-full object-cover"
+              onerror="
+                this.src =
+                  'https://i.vimeocdn.com/video/269665958-placeholder.jpg'
+              "
+            />
+            <!-- Dark overlay -->
+            <div
+              class="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-300"
+            ></div>
+            <!-- Gold play button -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="w-20 h-20 rounded-full bg-gold/90 group-hover:bg-gold group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-2xl"
+              >
+                <!-- Play icon — offset slightly right to look centered optically -->
+                <svg
+                  class="w-8 h-8 text-[#1C1C1C] ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <!-- Caption -->
+            <div
+              class="absolute bottom-0 left-0 right-0 p-4"
+              style="
+                background: linear-gradient(
+                  to top,
+                  rgba(0, 0, 0, 0.7) 0%,
+                  transparent 100%
+                );
+              "
+            >
+              <p class="text-xs tracking-widest uppercase text-gold/80">
+                Flare Modern Fireplaces · Installation Film
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+       FIREPLACE VIDEO MODAL
+  ══════════════════════════════════════════ -->
+    <div
+      id="fireplace-modal"
+      class="fixed inset-0 z-[9998] bg-black/95 hidden items-center justify-center p-4 md:p-10"
+      onclick="closeFireplaceModal(event)"
+    >
+      <div class="relative w-full max-w-5xl">
+        <!-- Close button -->
+        <button
+          onclick="closeFireplaceModal()"
+          aria-label="Close video"
+          class="absolute -top-12 right-0 text-white/60 hover:text-white text-sm tracking-widest uppercase flex items-center gap-2 transition-colors"
+        >
+          <span>Close</span>
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <!-- Responsive iframe wrapper -->
         <div
           class="relative w-full rounded-sm overflow-hidden shadow-2xl"
-          style="padding-bottom: 56.25%"
+          style="aspect-ratio: 16/9"
         >
           <iframe
-            src="https://player.vimeo.com/video/269665958?h=339f160d82&autoplay=0&title=0&byline=0&portrait=0&color=C9A96E"
+            id="fireplace-iframe"
+            src=""
+            data-src="https://player.vimeo.com/video/269665958?h=339f160d82&autoplay=1&title=0&byline=0&portrait=0&color=C9A96E"
             class="absolute inset-0 w-full h-full"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
             title="Flare Modern Fireplaces — Flash Gordon Installation"
-          ></iframe>
+          >
+          </iframe>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- ══════════════════════════════════════════
        SERVICES
@@ -2427,13 +2521,13 @@
     <!-- ══════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════ -->
-    <footer class="bg-[#0a0a0a] border-t border-gold/15 py-12 px-6">
+    <footer class="bg-[#0a0a0a] border-t border-gold/15 py-14 px-6">
       <div class="max-w-6xl mx-auto">
         <div
-          class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10"
+          class="flex flex-col md:flex-row justify-between items-start gap-10 mb-10"
         >
-          <div>
-            <div class="flex items-baseline gap-2 mb-3">
+          <div class="min-w-0">
+            <div class="flex items-baseline gap-2 mb-3 flex-wrap">
               <span class="text-white font-bold tracking-wider uppercase"
                 >Flash Gordon</span
               >
@@ -2441,35 +2535,38 @@
                 >Plumbing & Heating</span
               >
             </div>
-            <p class="text-xs text-white/40 max-w-xs leading-relaxed">
+            <p class="text-sm text-white/50 max-w-xs leading-relaxed">
               Master-certified plumbing, HVAC, electrical & design services
               serving Kirkland, Bellevue, and the Greater Eastside.
             </p>
           </div>
-          <div class="grid grid-cols-2 gap-8">
+
+          <div class="grid grid-cols-2 gap-10 flex-shrink-0">
             <div>
               <p
-                class="text-xs font-medium tracking-widest uppercase text-gold mb-3"
+                class="text-xs font-medium tracking-widest uppercase text-gold mb-4"
               >
                 Services
               </p>
-              <ul class="space-y-2">
+              <ul class="space-y-3">
                 <li>
                   <a
                     href="/"
-                    class="text-xs text-white/50 hover:text-white/80 transition-colors"
+                    class="text-sm text-white/60 hover:text-white/90 transition-colors"
                     >HVAC & Heating</a
                   >
                 </li>
                 <li>
                   <a
                     href="/"
-                    class="text-xs text-white/50 hover:text-white/80 transition-colors"
+                    class="text-sm text-white/60 hover:text-white/90 transition-colors"
                     >Tankless Water Heaters</a
                   >
                 </li>
                 <li>
-                  <a href="/Design" class="text-xs text-white/80"
+                  <a
+                    href="/Design"
+                    class="text-sm text-white/90 hover:text-gold transition-colors"
                     >Design Services</a
                   >
                 </li>
@@ -2477,22 +2574,22 @@
             </div>
             <div>
               <p
-                class="text-xs font-medium tracking-widest uppercase text-gold mb-3"
+                class="text-xs font-medium tracking-widest uppercase text-gold mb-4"
               >
                 Contact
               </p>
-              <ul class="space-y-2">
+              <ul class="space-y-3">
                 <li>
                   <a
                     href="tel:4256662557"
-                    class="text-xs text-white/50 hover:text-white/80 transition-colors"
+                    class="text-sm text-white/60 hover:text-white/90 transition-colors whitespace-nowrap"
                     >425-666-2557</a
                   >
                 </li>
                 <li>
                   <a
                     href="mailto:flashgordonplumbing@gmail.com"
-                    class="text-xs text-white/50 hover:text-white/80 transition-colors"
+                    class="text-sm text-white/60 hover:text-white/90 transition-colors break-all"
                     >flashgordonplumbing@gmail.com</a
                   >
                 </li>
@@ -2502,14 +2599,17 @@
         </div>
 
         <div
-          class="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
+          class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3"
         >
-          <p class="text-xs text-white/30">
+          <p class="text-xs text-white/40 text-center md:text-left">
             © 2025 Flash Gordon Plumbing & Heating. All rights reserved.
             Licensed, bonded and insured.
           </p>
-          <p class="text-xs text-white/20">
-            Design by Flash Gordon × Jennifer Kudijaroff
+          <!-- Pride line — Cormorant Garamond, gold-tinted, readable -->
+          <p
+            class="font-serif text-sm text-gold/70 tracking-wide italic text-center md:text-right"
+          >
+            Designed & built by Flash Gordon × Jennifer Kudijaroff
           </p>
         </div>
       </div>
@@ -2695,6 +2795,42 @@
         initSlider("ba1", "ba1-before", "ba1-handle");
         initSlider("ba2", "ba2-before", "ba2-handle");
         initSlider("ba3", "ba3-before", "ba3-handle");
+      });
+
+      // ── Fireplace Video Modal ──
+      function openFireplaceModal() {
+        const modal = document.getElementById("fireplace-modal");
+        const iframe = document.getElementById("fireplace-iframe");
+        // Only set src on open so video doesn't load until needed (faster page load)
+        iframe.src = iframe.dataset.src;
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeFireplaceModal(e) {
+        // If called from overlay click, only close if they clicked the backdrop itself
+        if (e && e.target !== document.getElementById("fireplace-modal"))
+          return;
+        const modal = document.getElementById("fireplace-modal");
+        const iframe = document.getElementById("fireplace-iframe");
+        // Clear src to stop video playing in background
+        iframe.src = "";
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        document.body.style.overflow = "";
+      }
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", (e) => {
+        if (
+          e.key === "Escape" &&
+          !document
+            .getElementById("fireplace-modal")
+            .classList.contains("hidden")
+        ) {
+          closeFireplaceModal();
+        }
       });
     </script>
   </body>

@@ -1,0 +1,3073 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Design Services v1 (Vanilla CSS) | Flash Gordon Plumbing & Heating
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================================
+       DESIGN_V1 — VANILLA CSS (bug-fixed archive)
+       Original Base44-generated page with the following fixes:
+       FIX 1: Phone number corrected to 425-666-2557 everywhere
+       FIX 2: Missing closing </div> on Zellige bath gallery grid
+       FIX 3: Mobile hamburger menu added (was completely missing)
+       FIX 4: gallery-item.tall reset on mobile (grid-row collapse)
+       FIX 5: Before/after slider styles moved to <head> (were inline)
+       FIX 6: Stats bar divide-x removed on mobile wrap
+       FIX 7: Phone number added to nav for desktop
+    ============================================================ */
+
+      :root {
+        --cream: #f9f5ef;
+        --warm-white: #fdfaf6;
+        --gold: #c9a96e;
+        --gold-light: #e8d5a3;
+        --gold-dark: #9a7840;
+        --walnut: #3d2b1f;
+        --walnut-light: #5c3d2b;
+        --charcoal: #1c1c1c;
+        --taupe: #8b7355;
+        --stone: #d4c4a8;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--warm-white);
+        color: var(--charcoal);
+      }
+
+      /* NAV */
+      nav {
+        background-color: #0a0a0a;
+        border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+      }
+      .nav-link {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 500;
+        transition: color 0.2s;
+        text-decoration: none;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold);
+      }
+      .nav-link.phone {
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .nav-cta {
+        background: var(--gold);
+        color: var(--charcoal);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.5rem 1.2rem;
+        border-radius: 2px;
+        transition: background 0.2s;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .nav-cta:hover {
+        background: var(--gold-light);
+      }
+
+      /* FIX 3: Mobile menu — was completely absent in original */
+      .mobile-menu-dropdown {
+        display: none;
+        flex-direction: column;
+        background: #0a0a0a;
+        border-top: 1px solid rgba(201, 169, 110, 0.2);
+        padding: 1.25rem 1.5rem;
+        gap: 1rem;
+      }
+      .mobile-menu-dropdown.open {
+        display: flex;
+      }
+      .mobile-menu-dropdown .nav-link {
+        font-size: 0.9rem;
+        padding: 0.25rem 0;
+      }
+      .mobile-menu-dropdown .nav-cta {
+        text-align: center;
+        padding: 0.75rem 1rem;
+        margin-top: 0.5rem;
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        height: 95vh;
+        min-height: 600px;
+        overflow: hidden;
+      }
+      .hero-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(10, 8, 5, 0.78) 0%,
+          rgba(10, 8, 5, 0.4) 60%,
+          rgba(10, 8, 5, 0.15) 100%
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 5vw;
+        max-width: 760px;
+      }
+      .hero-eyebrow {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.2rem;
+      }
+      .hero-headline {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        font-weight: 300;
+        line-height: 1.05;
+        color: #ffffff;
+        margin-bottom: 1.5rem;
+      }
+      .hero-headline em {
+        font-style: italic;
+        color: var(--gold-light);
+      }
+      .hero-sub {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 500px;
+        margin-bottom: 2.5rem;
+      }
+      .btn-primary {
+        display: inline-block;
+        background: var(--gold);
+        color: var(--charcoal);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.9rem 2.2rem;
+        border-radius: 2px;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .btn-primary:hover {
+        background: var(--gold-light);
+        transform: translateY(-1px);
+      }
+      .btn-ghost {
+        display: inline-block;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 0.9rem 2.2rem;
+        border-radius: 2px;
+        text-decoration: none;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .btn-ghost:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      /* STATS BAR */
+      .stats-bar {
+        background: var(--walnut);
+        padding: 1.5rem 5vw;
+      }
+      .stats-grid {
+        max-width: 60rem;
+        margin: 0 auto;
+        display: grid;
+        /* FIX 6: no divide-x on mobile, gap instead of border */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .stat-item {
+        text-align: center;
+        padding: 0.5rem;
+      }
+      .stat-number {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 0.3rem;
+      }
+
+      /* SECTION TYPOGRAPHY */
+      .section-eyebrow {
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--gold-dark);
+        margin-bottom: 0.8rem;
+      }
+      .section-headline {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 300;
+        line-height: 1.15;
+        color: var(--walnut);
+      }
+      .section-headline em {
+        font-style: italic;
+        color: var(--taupe);
+      }
+      .divider-gold {
+        width: 3rem;
+        height: 1px;
+        background: var(--gold);
+        margin: 1.5rem 0;
+      }
+
+      /* GALLERY */
+      .gallery-section {
+        background: #0a0a0a;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3px;
+        width: 100%;
+      }
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 3/2;
+        cursor: pointer;
+      }
+      .gallery-item.tall {
+        grid-row: span 2;
+        aspect-ratio: unset;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.04);
+      }
+      .gallery-item-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(10, 8, 5, 0.7) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+        display: flex;
+        align-items: flex-end;
+        padding: 1.5rem;
+      }
+      .gallery-item:hover .gallery-item-overlay {
+        opacity: 1;
+      }
+      .gallery-caption {
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .gallery-label {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 0.1em;
+        text-align: center;
+        padding: 2rem 0 1rem;
+      }
+
+      /* SERVICES */
+      .service-card {
+        border-top: 1px solid var(--stone);
+        padding: 2rem 0;
+        transition: border-color 0.3s;
+      }
+      .service-card:hover {
+        border-top-color: var(--gold);
+      }
+      .service-number {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3rem;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1;
+      }
+      .service-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--walnut);
+        margin-bottom: 0.5rem;
+      }
+      .service-desc {
+        font-size: 0.875rem;
+        line-height: 1.7;
+        color: var(--taupe);
+      }
+
+      /* PRICING CARDS */
+      .pricing-card {
+        background: white;
+        border: 1px solid var(--stone);
+        border-radius: 3px;
+        padding: 2rem;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+      .pricing-card:hover {
+        border-color: var(--gold);
+        box-shadow: 0 8px 30px rgba(201, 169, 110, 0.15);
+      }
+      .pricing-card.featured {
+        background: var(--walnut);
+        border-color: var(--gold);
+      }
+
+      /* TESTIMONIAL */
+      .testimonial-quote {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.3rem, 3vw, 2rem);
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1.5;
+        color: var(--walnut);
+      }
+
+      /* CTA / FOOTER */
+      .cta-section {
+        background: linear-gradient(135deg, var(--walnut) 0%, #2a1a0f 100%);
+      }
+      footer {
+        background: #0a0a0a;
+        border-top: 1px solid rgba(201, 169, 110, 0.15);
+      }
+
+      /* ============================================================
+       FIX 5: Before/After Slider styles — moved from inline to here
+       (In original, these were in a <style> tag mid-page inside the
+       gallery section, causing layout unpredictability)
+    ============================================================ */
+      .ba-container {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        cursor: ew-resize;
+        user-select: none;
+        border-radius: 2px;
+        background: #111;
+      }
+      .ba-after {
+        position: absolute;
+        inset: 0;
+      }
+      .ba-after img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      /* FIX: clip div — controls reveal width */
+      .ba-before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+        width: 50%; /* JS updates this */
+      }
+      /* FIX: before image pinned to container width so it never stretches */
+      .ba-before img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        /* width set by JS in px to match container exactly */
+      }
+      .ba-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: #c9a96e;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        cursor: ew-resize;
+      }
+      .ba-handle-circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #c9a96e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+      }
+      .ba-label {
+        position: absolute;
+        bottom: 1rem;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        z-index: 5;
+        pointer-events: none;
+      }
+      .ba-label-before {
+        left: 1rem;
+        background: rgba(0, 0, 0, 0.6);
+        color: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .ba-label-after {
+        right: 1rem;
+        background: rgba(0, 0, 0, 0.6);
+        color: #c9a96e;
+        border: 1px solid rgba(201, 169, 110, 0.5);
+      }
+
+      /* LIGHTBOX */
+      #lb-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.95);
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #lb-overlay.active {
+        display: flex;
+      }
+      #lb-img-wrap {
+        position: relative;
+        max-width: 92vw;
+        max-height: 82vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #lb-img {
+        max-width: 92vw;
+        max-height: 82vh;
+        object-fit: contain;
+        border-radius: 2px;
+        box-shadow: 0 8px 60px rgba(0, 0, 0, 0.8);
+      }
+      #lb-caption {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-top: 1rem;
+        text-align: center;
+      }
+      #lb-counter {
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        margin-top: 0.4rem;
+      }
+      .lb-btn {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(201, 169, 110, 0.15);
+        border: 1px solid rgba(201, 169, 110, 0.4);
+        color: #c9a96e;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        font-size: 1.4rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        z-index: 10000;
+      }
+      .lb-btn:hover {
+        background: rgba(201, 169, 110, 0.35);
+      }
+      #lb-prev {
+        left: 1.5rem;
+      }
+      #lb-next {
+        right: 1.5rem;
+      }
+      #lb-close {
+        position: fixed;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+      }
+
+      /* ============================================================
+       RESPONSIVE
+       FIX 4: .gallery-item.tall collapses gracefully on mobile
+       (original had grid-row:span 2 with no mobile reset, causing
+       huge empty spaces when grid went to 2 or 1 column)
+    ============================================================ */
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gallery-item.tall {
+          grid-row: span 1;
+          aspect-ratio: 4/3;
+        }
+        .hero-content {
+          padding: 0 1.5rem;
+        }
+        .hero-sub {
+          font-size: 0.9rem;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 769px) {
+        .stats-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-item.tall {
+          grid-row: span 1;
+          aspect-ratio: 4/3;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav class="sticky top-0 z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4"
+      >
+        <a
+          href="/"
+          class="flex items-baseline gap-1 no-underline flex-shrink-0"
+        >
+          <span class="text-white font-bold text-lg tracking-wider uppercase"
+            >FLASH GORDON</span
+          >
+          <span
+            style="color: var(--gold)"
+            class="text-sm tracking-widest ml-2 font-normal hidden sm:inline"
+            >PLUMBING & HEATING</span
+          >
+        </a>
+
+        <!-- Desktop links — FIX 7: phone number added -->
+        <div class="hidden md:flex items-center gap-6 lg:gap-8">
+          <a href="/" class="nav-link">Services</a>
+          <a href="/#pricing" class="nav-link">Pricing</a>
+          <a href="/#rebates" class="nav-link">Rebates</a>
+          <a href="/#work" class="nav-link">Our Work</a>
+          <a href="/Design" class="nav-link active">Design</a>
+          <a href="/#about" class="nav-link">About</a>
+          <a href="tel:4256662557" class="nav-link phone">425-666-2557</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="https://calendly.com/flashgordonplumbing/new-meeting"
+            target="_blank"
+            rel="noopener"
+            class="nav-cta hidden sm:block"
+            >Book Design Consult</a
+          >
+          <!-- Hamburger — FIX 3: added, was completely missing in original -->
+          <button
+            id="mobile-menu-button"
+            class="md:hidden text-white focus:outline-none p-2"
+            aria-label="Open mobile menu"
+          >
+            <svg
+              class="w-7 h-7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile dropdown — FIX 3 -->
+      <div id="mobile-menu" class="mobile-menu-dropdown">
+        <a href="/" class="nav-link">Services</a>
+        <a href="/#pricing" class="nav-link">Pricing</a>
+        <a href="/#rebates" class="nav-link">Rebates</a>
+        <a href="/#work" class="nav-link">Our Work</a>
+        <a href="/Design" class="nav-link active">Design</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/tank-vs-tankless" class="nav-link">Tank vs Tankless</a>
+        <a href="tel:4256662557" class="nav-link phone">📞 425-666-2557</a>
+        <a
+          href="https://calendly.com/flashgordonplumbing/new-meeting"
+          target="_blank"
+          rel="noopener"
+          class="nav-cta"
+          >Book Design Consult</a
+        >
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <img
+        class="hero-img"
+        src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/a63c68794_photo_29_2026-04-27_01-35-51.jpg"
+        alt="Luxury master bathroom — Calacatta marble, freestanding soaker, brass fixtures — Bellevue, WA"
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Flash Gordon Design Services</p>
+        <h1 class="hero-headline">Your bathroom.<br /><em>Reimagined.</em></h1>
+        <p class="hero-sub">
+          Elite interior design meets master-certified installation. We
+          transform bathrooms and living spaces into works of art — in as little
+          as a week. Bathtubs and showers can be redesigned without moving
+          plumbing. Lighting is designed as part of the space, not an
+          afterthought. We handle everything from concept to completion with one
+          team, one vision, and zero headaches.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem">
+          <a
+            href="https://calendly.com/flashgordonplumbing/new-meeting"
+            target="_blank"
+            rel="noopener"
+            class="btn-primary"
+            >Book a Design Consult</a
+          >
+          <a href="#gallery" class="btn-ghost">View Our Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS BAR — FIX 6: grid instead of divide-x -->
+    <div class="stats-bar">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Luxury Projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30</div>
+          <div class="stat-label">Years of Craft</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2 wks</div>
+          <div class="stat-label">Avg. Completion</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Team. All Trades.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JENNIFER INTRO -->
+    <section style="padding: 6rem 1.5rem; background: var(--cream)">
+      <div
+        style="
+          max-width: 72rem;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        "
+      >
+        <div
+          class="md:grid md:grid-cols-2 md:gap-16 md:items-center"
+          style="display: contents"
+        >
+          <div>
+            <p class="section-eyebrow">Meet Your Designer</p>
+            <h2 class="section-headline">
+              Jennifer Kudijaroff<br /><em>Color is her language.</em>
+            </h2>
+            <div class="divider-gold"></div>
+            <p
+              style="
+                font-size: 0.875rem;
+                line-height: 1.7;
+                color: #4b5563;
+                margin-bottom: 1rem;
+              "
+            >
+              Jennifer doesn't have a signature style — she has a signature
+              process. She starts with what you love most. A painting. A fabric.
+              A memory of a place that made you feel something. Then she builds
+              your entire space around it, pulling colors, textures, and light
+              until your home feels like it was always meant to look exactly
+              this way.
+            </p>
+            <p
+              style="
+                font-size: 0.875rem;
+                line-height: 1.7;
+                color: #4b5563;
+                margin-bottom: 1rem;
+              "
+            >
+              She has designed $100,000 kitchens and $15,000 kitchens. Both look
+              like they belong in a magazine. The difference is never the budget
+              — it's the eye. Jennifer knows where to invest and where to be
+              clever. She'll specify a stunning mitered quartz countertop, then
+              find the perfect fixture on Wayfair. Every decision serves the
+              whole.
+            </p>
+            <p
+              style="
+                font-size: 0.875rem;
+                line-height: 1.7;
+                color: #4b5563;
+                margin-bottom: 2rem;
+              "
+            >
+              Jennifer is a master of lighting design. Under-counter, toe-kick,
+              accent, art lighting, dimmers — she thinks about every bulb and
+              every shadow. She'll go shopping with you. She won't sign off
+              until it's right.
+            </p>
+            <a
+              href="https://calendly.com/flashgordonplumbing/new-meeting"
+              target="_blank"
+              rel="noopener"
+              class="btn-primary"
+              style="background: var(--walnut); color: white"
+              >Work With Jennifer</a
+            >
+          </div>
+          <div style="position: relative; margin-top: 2rem">
+            <div
+              style="
+                position: absolute;
+                top: -1rem;
+                left: -1rem;
+                width: 100%;
+                height: 100%;
+                border: 1px solid rgba(201, 169, 110, 0.3);
+                border-radius: 2px;
+                pointer-events: none;
+              "
+            ></div>
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/45c9da6eb_photo_17_2026-04-27_01-35-51.jpg"
+              alt="Spa bathroom — zellige tile, round soaker tub, ceiling waterfall filler"
+              style="
+                width: 100%;
+                height: clamp(20rem, 40vw, 30rem);
+                object-fit: cover;
+                object-position: center top;
+                border-radius: 2px;
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+                position: relative;
+                z-index: 1;
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section style="padding: 6rem 1.5rem; background: var(--walnut)">
+      <div style="max-width: 48rem; margin: 0 auto; text-align: center">
+        <p
+          style="
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+          "
+        >
+          Our Philosophy
+        </p>
+        <h2
+          style="
+            font-family: &quot;Cormorant Garamond&quot;, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+          "
+        >
+          Every space we touch is
+          <em style="font-style: italic; color: var(--gold-light)"
+            >one of a kind.</em
+          ><br />
+          We never design the same thing twice.
+        </h2>
+        <p
+          style="
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 36rem;
+            margin: 0 auto 3rem;
+          "
+        >
+          We believe your home should tell your story, not copy someone else's
+          inspiration board. When Jennifer sits down with you, she's listening
+          for the color that makes your eyes light up, the texture that feels
+          like you, the lighting mood that makes 6pm feel like magic.
+        </p>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            text-align: left;
+          "
+        >
+          <div class="md:grid-cols-3" style="display: grid; gap: 2rem">
+            <div
+              style="
+                border-top: 1px solid rgba(201, 169, 110, 0.3);
+                padding-top: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  color: var(--gold);
+                  font-size: 1.5rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                ✦
+              </div>
+              <h3
+                style="
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
+                  font-size: 1.25rem;
+                  color: white;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Paint-to-Space Design
+              </h3>
+              <p
+                style="
+                  font-size: 0.875rem;
+                  color: rgba(255, 255, 255, 0.6);
+                  line-height: 1.6;
+                "
+              >
+                Your favorite painting becomes the palette. Colors, mood, and
+                texture — all drawn from what already moves you.
+              </p>
+            </div>
+            <div
+              style="
+                border-top: 1px solid rgba(201, 169, 110, 0.3);
+                padding-top: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  color: var(--gold);
+                  font-size: 1.5rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                ✦
+              </div>
+              <h3
+                style="
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
+                  font-size: 1.25rem;
+                  color: white;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Light as Architecture
+              </h3>
+              <p
+                style="
+                  font-size: 0.875rem;
+                  color: rgba(255, 255, 255, 0.6);
+                  line-height: 1.6;
+                "
+              >
+                Jennifer designs light the way others design walls — with
+                intention. Every layer planned before a single tile is cut.
+              </p>
+            </div>
+            <div
+              style="
+                border-top: 1px solid rgba(201, 169, 110, 0.3);
+                padding-top: 1.5rem;
+              "
+            >
+              <div
+                style="
+                  color: var(--gold);
+                  font-size: 1.5rem;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                ✦
+              </div>
+              <h3
+                style="
+                  font-family: &quot;Cormorant Garamond&quot;, serif;
+                  font-size: 1.25rem;
+                  color: white;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Design + Build in One
+              </h3>
+              <p
+                style="
+                  font-size: 0.875rem;
+                  color: rgba(255, 255, 255, 0.6);
+                  line-height: 1.6;
+                "
+              >
+                One team. Master plumber, electrician, tile setter, carpenter,
+                and designer. No handoffs, no surprises.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery-section" style="padding-top: 0.75rem">
+      <div style="width: 100%">
+        <div style="text-align: center; padding: 3rem 1rem 3rem">
+          <p
+            style="
+              font-size: 0.65rem;
+              font-weight: 500;
+              letter-spacing: 0.25em;
+              text-transform: uppercase;
+              color: var(--gold);
+              margin-bottom: 0.75rem;
+            "
+          >
+            Portfolio
+          </p>
+          <h2
+            style="
+              font-family: &quot;Cormorant Garamond&quot;, serif;
+              font-size: 2.5rem;
+              font-weight: 300;
+              color: white;
+            "
+          >
+            The Work Speaks.
+          </h2>
+        </div>
+
+        <!-- Bellevue Master Bath -->
+        <p class="gallery-label" style="padding: 0 0.75rem">
+          Bellevue Master Bath · Calacatta Marble Collection
+        </p>
+        <div
+          class="gallery-grid"
+          style="padding: 0 0.75rem; margin-bottom: 0.25rem"
+        >
+          <div class="gallery-item tall">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/a63c68794_photo_29_2026-04-27_01-35-51.jpg"
+              alt="Bellevue master bath — Calacatta marble, freestanding soaker, dual walnut vanities"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Master Bath · Calacatta Marble Throughout</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/69ceb718c_photo_30_2026-04-27_01-35-51.jpg"
+              alt="Curbless shower floor — Calacatta marble"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Curbless Shower · Zero Threshold Entry</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/12c83722e_photo_31_2026-04-27_01-35-51.jpg"
+              alt="Geometric star tile pattern cut around center drain"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Geometric Star Drain · Custom Cut Marble</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/9de36f15e_photo_32_2026-04-27_01-35-51.jpg"
+              alt="Adorne collection smart dimmer switch"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption">LeGrand Adorne Smart Dimmer</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/446e6fcd2_photo_33_2026-04-27_01-35-51.jpg"
+              alt="Smart home lighting control panel"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption">Smart Home Lighting Control</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/776d4229d_photo_34_2026-04-27_01-35-51.jpg"
+              alt="LeGrand Adorne pop-out outlets with USB"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Adorne Pop-Out Outlets · USB Integrated</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/d8823fcda_photo_1_2026-04-27_02-26-18.jpg"
+              alt="Full suite view — dual walnut vanities, brass sconces"
+              style="object-position: center 40%"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Full Suite View · Dual Vanities · Brass Sconces</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/49ef00b05_photo_4_2026-04-27_02-26-18.jpg"
+              alt="Slatted walnut vanity, brass sconces, white zellige tile"
+            />
+            <div
+              class="gallery-item-overlay"
+              style="
+                opacity: 1;
+                background: linear-gradient(
+                  to top,
+                  rgba(10, 8, 5, 0.75) 0%,
+                  transparent 55%
+                );
+              "
+            >
+              <div>
+                <span
+                  class="gallery-caption"
+                  style="display: block; margin-bottom: 0.15rem"
+                  >Slatted Walnut Vanity · Brass Sconces · Zellige Tile</span
+                >
+                <span
+                  style="
+                    font-size: 0.6rem;
+                    letter-spacing: 0.1em;
+                    color: rgba(255, 255, 255, 0.45);
+                    text-transform: uppercase;
+                  "
+                  >Final installation walkthrough</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/07b39bf59_photo_2_2026-04-27_02-26-18.jpg"
+              alt="Smart thermostat and in-wall toilet flush panel"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Smart Thermostat · In-Wall Flush Panel · Brass Detail</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- end Bellevue grid -->
+
+        <!-- Spa Bath: Zellige & Waterfall -->
+        <p class="gallery-label" style="padding: 2.5rem 0.75rem 1rem">
+          Spa Bath · Zellige Tile & Ceiling Waterfall
+        </p>
+        <!-- FIX 2: original was missing closing </div> on this grid, breaking all layout below it -->
+        <div
+          class="gallery-grid"
+          style="padding: 0 0.75rem; margin-bottom: 2rem"
+        >
+          <div class="gallery-item tall">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/45c9da6eb_photo_17_2026-04-27_01-35-51.jpg"
+              alt="Full bath overview — zellige tile, round soaker, floating walnut vanity"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Spa Bath · Zellige Tile · Round Soaker</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/263b9aa90_photo_18_2026-04-27_01-35-51.jpg"
+              alt="Ceiling-mount waterfall tub filler over round soaker"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Ceiling Waterfall Tub Filler · Brass</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/41250c113_photo_19_2026-04-27_01-35-51.jpg"
+              alt="Round soaker tub against zellige tile wall"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Oval Soaker · Handmade Zellige Surround</span
+              >
+            </div>
+          </div>
+          <!-- FIX: removed grid-column:span 2 which caused broken layout on mobile -->
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/787426ce4_photo_20_2026-04-27_01-35-51.jpg"
+              alt="Ceiling-mount waterfall shower head with recessed lighting"
+              style="object-position: center 30%"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Ceiling Waterfall · Recessed Light Placement</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- end Spa Bath grid — FIX 2: this closing tag was MISSING in original -->
+
+        <!-- Forest Green & Terrazzo -->
+        <p class="gallery-label" style="padding: 2.5rem 0.75rem 1rem">
+          Forest Green & Terrazzo · Double Shower Suite
+        </p>
+        <div
+          class="gallery-grid"
+          style="padding: 0 0.75rem; margin-bottom: 1rem"
+        >
+          <div class="gallery-item tall">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/289e98254_photo_1_2026-04-27_01-35-51.jpg"
+              alt="Full room — forest green zellige, terrazzo hex floor, double shower, console sink"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Double Shower Suite · Forest Green Zellige</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/99de30739_photo_9_2026-04-27_02-25-58.jpg"
+              alt="Double curbless shower — matte black fixtures, forest green gloss tile"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Dual Shower Heads · Matte Black · Curbless</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/bd8f72f2b_photo_2_2026-04-27_01-35-51.jpg"
+              alt="Curbless walk-in shower from hallway — linear drain, green tile"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Walk-In Entry · Linear Drain · Zero Threshold</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/5ee11346c_photo_7_2026-04-27_02-25-58.jpg"
+              alt="Backlit mirror, black metal console sink, wall-mount faucet, terrazzo floor"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Backlit Mirror · Console Sink · Wall-Mount Faucet</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/cad14c7f8_photo_10_2026-04-27_02-25-58.jpg"
+              alt="Double shower — matte black rain heads, linear drain, terrazzo"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Matte Black Rain Heads · Linear Channel Drain</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/8d14622ed_photo_6_2026-04-27_02-25-58.jpg"
+              alt="Curbless shower entry niche — textured green paint, terrazzo"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Curbless Niche Entry · Hand-Textured Plaster</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/7416c7f3e_photo_3_2026-04-27_01-35-51.jpg"
+              alt="Terrazzo hex tile flowing into shower from hallway"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Terrazzo Hex Floor · Seamless Flow Into Shower</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/02bade4f0_photo_4_2026-04-27_01-35-51.jpg"
+              alt="Full suite view — separate WC, terrazzo, green tile, console sink"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Full Suite · Separate WC · Open Shower Plan</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/35b759b81_photo_8_2026-04-27_02-25-58.jpg"
+              alt="Smart home controller on textured forest green wall"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Smart Home Controller · LeGrand Adorne</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/bb6783792_photo_5_2026-04-27_01-35-51.jpg"
+              alt="During construction — backlit mirror installed, pendant rough-ins visible"
+            />
+            <div
+              class="gallery-item-overlay"
+              style="
+                opacity: 1;
+                background: linear-gradient(
+                  to top,
+                  rgba(10, 8, 5, 0.8) 0%,
+                  transparent 60%
+                );
+              "
+            >
+              <div>
+                <span
+                  class="gallery-caption"
+                  style="display: block; margin-bottom: 0.2rem"
+                  >Behind the Scenes · During Installation</span
+                >
+                <span
+                  style="
+                    font-size: 0.6rem;
+                    letter-spacing: 0.1em;
+                    color: rgba(255, 255, 255, 0.5);
+                    text-transform: uppercase;
+                  "
+                  >Pendant rough-ins visible — pendants installed at
+                  completion</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end Forest Green grid -->
+
+        <!-- BEFORE / AFTER SLIDERS
+           FIX 5: All .ba-* styles moved to <head> stylesheet above.
+           Original had these styles in a <style> tag HERE inside the
+           gallery section body — caused FOUC and layout shifts.
+           The JS logic is identical to original, only the CSS location changed.
+      -->
+        <div style="max-width: 88rem; margin: 0 auto; padding: 0 0.75rem 4rem">
+          <p
+            class="gallery-label"
+            style="padding-top: 2.5rem; padding-bottom: 0.5rem"
+          >
+            Before & After
+          </p>
+          <p
+            style="
+              text-align: center;
+              font-size: 0.7rem;
+              letter-spacing: 0.2em;
+              text-transform: uppercase;
+              color: rgba(255, 255, 255, 0.3);
+              padding-bottom: 2.5rem;
+            "
+          >
+            Drag the slider to reveal the transformation
+          </p>
+
+          <!-- Slider 1 — full width -->
+          <div class="ba-container" id="ba1" style="margin-bottom: 4px">
+            <div class="ba-after">
+              <img
+                src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/8f7477724_photo_2_2026-04-27_01-35-51.jpg"
+                alt="After — green double shower suite with terrazzo floor"
+              />
+            </div>
+            <div class="ba-before" id="ba1-before">
+              <img
+                src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/966923270_photo_1_2026-04-27_18-53-22.jpg"
+                alt="Before — laundry room being converted to shower"
+              />
+            </div>
+            <div class="ba-handle" id="ba1-handle">
+              <div class="ba-handle-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M6 10H14M6 10L9 7M6 10L9 13M14 10L11 7M14 10L11 13"
+                    stroke="#1C1C1C"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <span class="ba-label ba-label-before">Before</span>
+            <span class="ba-label ba-label-after">After</span>
+          </div>
+
+          <!-- Sliders 2 & 3 — side by side -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px">
+            <div class="ba-container" id="ba2">
+              <div class="ba-after">
+                <img
+                  src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/950583506_photo_3_2026-04-27_01-35-51.jpg"
+                  alt="After — hallway view with private toilet room and green shower suite"
+                />
+              </div>
+              <div class="ba-before" id="ba2-before">
+                <img
+                  src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/e183895b6_photo_5_2026-04-27_02-25-58.jpg"
+                  alt="Before — original fiberglass shower stall"
+                />
+              </div>
+              <div class="ba-handle" id="ba2-handle">
+                <div class="ba-handle-circle">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M6 10H14M6 10L9 7M6 10L9 13M14 10L11 7M14 10L11 13"
+                      stroke="#1C1C1C"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+
+            <div class="ba-container" id="ba3">
+              <div class="ba-after">
+                <img
+                  src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/10ba232da_photo_10_2026-04-27_02-25-58.jpg"
+                  alt="After — window tiled into green shower wall"
+                />
+              </div>
+              <div class="ba-before" id="ba3-before">
+                <img
+                  src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/89028a183_photo_3_2026-04-27_02-25-58.jpg"
+                  alt="Before — original window before conversion"
+                />
+              </div>
+              <div class="ba-handle" id="ba3-handle">
+                <div class="ba-handle-circle">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M6 10H14M6 10L9 7M6 10L9 13M14 10L11 7M14 10L11 13"
+                      stroke="#1C1C1C"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+        <!-- end sliders -->
+
+        <!-- His & Hers Dual Shower -->
+        <p class="gallery-label" style="padding: 2.5rem 0.75rem 1rem">
+          His & Hers · Dual Shower Suite
+        </p>
+        <div
+          class="gallery-grid"
+          style="padding: 0 0.75rem; margin-bottom: 0.25rem"
+        >
+          <div class="gallery-item tall">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/9fe82626c_photo_12_2026-04-27_01-35-51.jpg"
+              alt="His and hers dual shower — large format white tile, glass mosaic accent band"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >His & Hers · Dual Shower · Glass Mosaic Band</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/e2cb069f6_photo_11_2026-04-27_01-35-51.jpg"
+              alt="Gordon Montgomery — master craftsman — in front of completed shower"
+            />
+            <div
+              class="gallery-item-overlay"
+              style="
+                opacity: 1;
+                background: linear-gradient(
+                  to top,
+                  rgba(10, 8, 5, 0.85) 0%,
+                  transparent 55%
+                );
+              "
+            >
+              <div>
+                <span
+                  class="gallery-caption"
+                  style="display: block; margin-bottom: 0.15rem"
+                  >The Builder · Gordon Montgomery</span
+                >
+                <span
+                  style="
+                    font-size: 0.6rem;
+                    letter-spacing: 0.1em;
+                    color: rgba(255, 255, 255, 0.45);
+                    text-transform: uppercase;
+                  "
+                  >30 Years. Master Certified. Every tile by hand.</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/b35b4ae60_photo_16_2026-04-27_01-35-51.jpg"
+              alt="Petrified wood vessel sink — local Bellingham artist"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Petrified Wood Vessel Sink · Local Bellingham Artist · One of a
+                Kind</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- end His & Hers grid -->
+
+        <!-- Classic Subway & Glass Vessel -->
+        <p class="gallery-label" style="padding: 2.5rem 0.75rem 1rem">
+          Classic Subway & Glass Vessel · San Juan Islands
+        </p>
+        <div
+          class="gallery-grid"
+          style="padding: 0 0.75rem; margin-bottom: 0.25rem"
+        >
+          <div class="gallery-item tall">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/9df7f9832_photo_21_2026-04-27_01-35-51.jpg"
+              alt="Frameless glass shower — large subway tile, pebble floor, built-in niche, brushed nickel"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Frameless Glass · Subway Tile · Pebble Floor</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/2b894773a_photo_22_2026-04-27_01-35-51.jpg"
+              alt="Rain head and handheld shower — brushed nickel — subway tile"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Rain Head + Slide Bar · Brushed Nickel</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/e42801320_photo_23_2026-04-27_01-35-51.jpg"
+              alt="Clear glass vessel sink on white quartz — bamboo style brushed nickel faucet"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Glass Vessel Sink · Bamboo Faucet · Quartz</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/3c5d563a9_photo_24_2026-04-27_01-35-51.jpg"
+              alt="Close-up — clear glass oval vessel sink with brushed nickel bamboo faucet"
+              style="object-position: center 40%"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Glass Vessel Detail · Precision Plumbing</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- end Subway grid -->
+
+        <!-- Boutique Mini Bath -->
+        <p class="gallery-label" style="padding: 2.5rem 0.75rem 1rem">
+          Boutique Mini Bath · Penny Tile & Brass
+        </p>
+        <div style="max-width: 600px; margin: 0 auto 2rem; padding: 0 0.75rem">
+          <div class="gallery-item" style="aspect-ratio: 3/4">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/a534482fe_photo_35_2026-04-27_01-35-51.jpg"
+              alt="Compact bath — penny tile walls, Calacatta marble floor, floating trough sink, brass fixtures"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Penny Tile · Marble Floor · Brass Fixtures · Trough Sink</span
+              >
+            </div>
+          </div>
+          <p
+            style="
+              text-align: center;
+              font-size: 0.65rem;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              color: rgba(255, 255, 255, 0.25);
+              padding-top: 0.75rem;
+            "
+          >
+            A small space — zero wasted decisions. Every inch is intentional.
+          </p>
+        </div>
+      </div>
+      <!-- end gallery inner -->
+    </section>
+    <!-- end gallery section -->
+
+    <!-- LAKE HOUSE — SAMISH LAKE -->
+    <section style="background: #0a0a0a; padding-bottom: 4rem">
+      <div style="max-width: 88rem; margin: 0 auto; padding: 0 0.75rem">
+        <p class="gallery-label" style="padding-top: 2.5rem">
+          Lake House · Samish Lake · Full Gut & Rebuild
+        </p>
+        <p
+          style="
+            text-align: center;
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.25);
+            padding-bottom: 2rem;
+          "
+        >
+          Converted a laundry room into a full wet bath suite — Schluter Kerdi
+          waterproofing throughout · In-floor radiant heat · Wave switch
+          lighting · Private toilet room
+        </p>
+
+        <div class="gallery-grid" style="margin-bottom: 0.25rem">
+          <div class="gallery-item tall">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/b836e9c40_photo_8_2026-04-27_19-21-29.jpg"
+              alt="Lake house — backlit floating vanity, wave switch and radiant heat thermostat, terrazzo floor"
+            />
+            <div
+              class="gallery-item-overlay"
+              style="
+                opacity: 1;
+                background: linear-gradient(
+                  to top,
+                  rgba(10, 8, 5, 0.8) 0%,
+                  transparent 50%
+                );
+              "
+            >
+              <div>
+                <span
+                  class="gallery-caption"
+                  style="display: block; margin-bottom: 0.2rem"
+                  >Backlit Floating Vanity · Wave Switch · Radiant Heat
+                  Thermostat</span
+                >
+                <span
+                  style="
+                    font-size: 0.58rem;
+                    letter-spacing: 0.12em;
+                    color: rgba(255, 255, 255, 0.4);
+                    text-transform: uppercase;
+                  "
+                  >LeGrand Wave Switch — no-touch lighting for lake days</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/8f7477724_photo_2_2026-04-27_01-35-51.jpg"
+              alt="Green double shower suite — dual rain heads, terrazzo floor, matte black fixtures"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Dual Shower · Schluter Kerdi Throughout · Terrazzo Floor</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/950583506_photo_3_2026-04-27_01-35-51.jpg"
+              alt="Hallway view — private toilet room pocket door and green shower entrance"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Private Toilet Room · Pocket Door · Open Shower Entry</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/10ba232da_photo_10_2026-04-27_02-25-58.jpg"
+              alt="Window fully tiled into green zellige shower wall — Kerdi waterproofed sill"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Window Tiled Into Shower · Kerdi Waterproofed Sill</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/c65a714dd_photo_5_2026-04-27_19-21-29.jpg"
+              alt="Private toilet room — clean, minimal, recessed toilet paper holder"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Private Toilet Room · Recessed Hardware</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- end lake house grid -->
+
+        <!-- Schluter / Radiant callout -->
+        <div
+          style="
+            max-width: 56rem;
+            margin: 0.5rem auto 0;
+            background: rgba(201, 169, 110, 0.06);
+            border: 1px solid rgba(201, 169, 110, 0.2);
+            padding: 1.5rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          "
+        >
+          <div
+            class="md:grid-cols-3"
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              gap: 2rem;
+            "
+          >
+            <div style="border-left: 2px solid var(--gold); padding-left: 1rem">
+              <p
+                style="
+                  font-size: 0.6rem;
+                  letter-spacing: 0.2em;
+                  text-transform: uppercase;
+                  color: var(--gold);
+                  margin-bottom: 0.4rem;
+                "
+              >
+                Waterproofing
+              </p>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: rgba(255, 255, 255, 0.85);
+                  line-height: 1.5;
+                "
+              >
+                Full Schluter Kerdi board system — entire shower cavity, window
+                frame, sill, and floor. Not just the wet zone. Everything.
+              </p>
+            </div>
+            <div style="border-left: 2px solid var(--gold); padding-left: 1rem">
+              <p
+                style="
+                  font-size: 0.6rem;
+                  letter-spacing: 0.2em;
+                  text-transform: uppercase;
+                  color: var(--gold);
+                  margin-bottom: 0.4rem;
+                "
+              >
+                In-Floor Radiant Heat
+              </p>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: rgba(255, 255, 255, 0.85);
+                  line-height: 1.5;
+                "
+              >
+                Doubled floor joists, dual ¾" plywood, AquaSeal, electric
+                radiant mat, mortar bed — the whole bathroom is warm underfoot.
+              </p>
+            </div>
+            <div style="border-left: 2px solid var(--gold); padding-left: 1rem">
+              <p
+                style="
+                  font-size: 0.6rem;
+                  letter-spacing: 0.2em;
+                  text-transform: uppercase;
+                  color: var(--gold);
+                  margin-bottom: 0.4rem;
+                "
+              >
+                Wave Switch Lighting
+              </p>
+              <p
+                style="
+                  font-size: 0.8rem;
+                  color: rgba(255, 255, 255, 0.85);
+                  line-height: 1.5;
+                "
+              >
+                LeGrand Wave Switch — wave your hand to turn on lights. No
+                touching the switch when you're dripping wet from the lake.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Girls' Bath -->
+        <p class="gallery-label" style="padding-top: 3rem">
+          Girls' Bath · Samish Lake House · Bold & Playful
+        </p>
+        <div class="gallery-grid" style="margin-bottom: 0.25rem">
+          <div class="gallery-item tall">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/5cd2ef79d_photo_9_2026-04-27_19-21-29.jpg"
+              alt="Girls' bathroom — dual oval mirrors, bold floral wallpaper, double vanity, reeded glass doors"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Girls' Bath · Floral Wallpaper · Dual Oval Mirrors</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/fee516ed2_photo_2_2026-04-27_19-21-29.jpg"
+              alt="Reeded glass black-framed interior doors"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Reeded Glass Doors · Matte Black Frames</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/b0b3cade1_photo_3_2026-04-27_19-21-29.jpg"
+              alt="Double vanity — floral wallpaper, globe sconces, dual oval mirrors, matte black faucets"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Double Vanity · Globe Sconces · Floral Feature Wall</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/4351d6203_photo_4_2026-04-27_19-21-29.jpg"
+              alt="LeGrand Wave switch — white — girls bathroom"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >LeGrand Wave Switch · No-Touch · White Collection</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/30366d9a0_photo_6_2026-04-27_19-21-29.jpg"
+              alt="Tub/shower combo with matte black fixtures and reeded glass sliding door"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Tub/Shower · Matte Black · Reeded Glass Door</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item" style="grid-column: span 2">
+            <img
+              src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/3b4de0c98_photo_7_2026-04-27_19-21-29.jpg"
+              alt="Full girls bathroom — dual vanity, floral wallpaper, reeded glass shower door"
+              style="object-position: center 35%"
+            />
+            <div class="gallery-item-overlay">
+              <span class="gallery-caption"
+                >Full Room View · Samish Lake · Girls' Bath</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- end Girls' Bath grid -->
+      </div>
+    </section>
+
+    <!-- LIGHTING SECTION -->
+    <section style="padding: 6rem 1.5rem; background: var(--cream)">
+      <div style="max-width: 72rem; margin: 0 auto">
+        <div style="text-align: center; margin-bottom: 3.5rem">
+          <p class="section-eyebrow">Signature Lighting Design</p>
+          <h2 class="section-headline" style="text-align: center">
+            Light isn't an afterthought.<br /><em>It's the whole story.</em>
+          </h2>
+          <div class="divider-gold" style="margin: 1.5rem auto"></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 3rem">
+          <div
+            class="md:grid-cols-2"
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: 3rem;
+              align-items: start;
+            "
+          >
+            <div>
+              <p
+                style="
+                  font-size: 0.875rem;
+                  line-height: 1.7;
+                  color: #4b5563;
+                  margin-bottom: 1rem;
+                "
+              >
+                Most contractors install light fixtures. Jennifer designs light
+                experiences. Before a single tile is cut, she's already planning
+                every layer — the warm glow of under-counter strips, the soft
+                theater of toe-kick lighting at midnight, the art-grade beam
+                that makes a painting look like it's lit from within.
+              </p>
+              <p
+                style="
+                  font-size: 0.875rem;
+                  line-height: 1.7;
+                  color: #4b5563;
+                  margin-bottom: 1rem;
+                "
+              >
+                She once specified a chandelier made entirely of hand-blown
+                solid glass birds. When you turned the birds on their stems,
+                they cast shadow-play patterns across the walls — sunlight and
+                silhouette shifting with the angle. It wasn't a light fixture.
+                It was a mood generator.
+              </p>
+              <p
+                style="
+                  font-size: 0.875rem;
+                  line-height: 1.7;
+                  color: #4b5563;
+                  margin-bottom: 1rem;
+                "
+              >
+                Every project uses the LeGrand Adorne collection — the most
+                beautifully designed switch and outlet system on the market.
+                Dimmers on every circuit that warrants it. Recessed lighting
+                positioned not just for brightness, but for shadow.
+              </p>
+              <p
+                style="
+                  font-size: 0.875rem;
+                  line-height: 1.7;
+                  color: #4b5563;
+                  margin-bottom: 2rem;
+                "
+              >
+                We do ceiling-mount waterfall shower fixtures that become the
+                centerpiece of the room. We do cove lighting above cabinets. We
+                do everything that makes 7pm in your bathroom feel like a
+                five-star hotel.
+              </p>
+
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 1rem;
+                  margin-bottom: 2rem;
+                "
+              >
+                <div
+                  style="border-left: 2px solid var(--gold); padding-left: 1rem"
+                >
+                  <p
+                    style="
+                      font-size: 0.75rem;
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.08em;
+                      color: #1f2937;
+                      margin-bottom: 0.25rem;
+                    "
+                  >
+                    Under-Counter Strips
+                  </p>
+                  <p style="font-size: 0.75rem; color: #6b7280">
+                    Warm task lighting that disappears into the design
+                  </p>
+                </div>
+                <div
+                  style="border-left: 2px solid var(--gold); padding-left: 1rem"
+                >
+                  <p
+                    style="
+                      font-size: 0.75rem;
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.08em;
+                      color: #1f2937;
+                      margin-bottom: 0.25rem;
+                    "
+                  >
+                    Toe-Kick Lighting
+                  </p>
+                  <p style="font-size: 0.75rem; color: #6b7280">
+                    Soft ambient glow at floor level — magic at night
+                  </p>
+                </div>
+                <div
+                  style="border-left: 2px solid var(--gold); padding-left: 1rem"
+                >
+                  <p
+                    style="
+                      font-size: 0.75rem;
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.08em;
+                      color: #1f2937;
+                      margin-bottom: 0.25rem;
+                    "
+                  >
+                    Art & Accent Lighting
+                  </p>
+                  <p style="font-size: 0.75rem; color: #6b7280">
+                    Directional beams that frame what matters most
+                  </p>
+                </div>
+                <div
+                  style="border-left: 2px solid var(--gold); padding-left: 1rem"
+                >
+                  <p
+                    style="
+                      font-size: 0.75rem;
+                      font-weight: 600;
+                      text-transform: uppercase;
+                      letter-spacing: 0.08em;
+                      color: #1f2937;
+                      margin-bottom: 0.25rem;
+                    "
+                  >
+                    Smart Dimmers
+                  </p>
+                  <p style="font-size: 0.75rem; color: #6b7280">
+                    LeGrand Adorne — every circuit, every mood
+                  </p>
+                </div>
+              </div>
+
+              <!-- Featured Fixture -->
+              <div
+                style="
+                  border: 1px solid var(--stone);
+                  border-radius: 3px;
+                  padding: 1.25rem;
+                  background: white;
+                "
+              >
+                <p
+                  style="
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    color: var(--gold-dark);
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  Featured Fixture
+                </p>
+                <div style="display: flex; gap: 1rem; align-items: center">
+                  <img
+                    src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/667e1d709_photo_1_2026-04-27_02-26-28.jpg"
+                    alt="Matte black bubble glass pendant lights"
+                    style="
+                      width: 5rem;
+                      height: 7rem;
+                      object-fit: contain;
+                      background: #f5f5f5;
+                      border-radius: 2px;
+                      flex-shrink: 0;
+                    "
+                  />
+                  <div>
+                    <h4
+                      style="
+                        font-family: &quot;Cormorant Garamond&quot;, serif;
+                        font-size: 1.1rem;
+                        color: var(--walnut);
+                        margin-bottom: 0.25rem;
+                      "
+                    >
+                      Matte Black Bubble Glass Pendants
+                    </h4>
+                    <p
+                      style="
+                        font-size: 0.75rem;
+                        color: #6b7280;
+                        line-height: 1.6;
+                      "
+                    >
+                      A pair of these LED crystal bubble cylinder pendants flank
+                      the vanity mirror in the Forest Green & Terrazzo suite.
+                      The micro-bubble glass catches and scatters light like a
+                      prism — elegant, modern, and completely unexpected against
+                      the deep green.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+              "
+            >
+              <img
+                src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/9de36f15e_photo_32_2026-04-27_01-35-51.jpg"
+                alt="Adorne dimmer switch"
+                style="
+                  width: 100%;
+                  aspect-ratio: 1;
+                  object-fit: cover;
+                  border-radius: 2px;
+                "
+              />
+              <img
+                src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/787426ce4_photo_20_2026-04-27_01-35-51.jpg"
+                alt="Ceiling waterfall with recessed lights"
+                style="
+                  width: 100%;
+                  aspect-ratio: 1;
+                  object-fit: cover;
+                  object-position: center 20%;
+                  border-radius: 2px;
+                "
+              />
+              <img
+                src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/446e6fcd2_photo_33_2026-04-27_01-35-51.jpg"
+                alt="Smart lighting panel"
+                style="
+                  width: 100%;
+                  aspect-ratio: 1;
+                  object-fit: cover;
+                  border-radius: 2px;
+                "
+              />
+              <img
+                src="https://media.base44.com/images/public/69ef12ecc20962a48c9c117c/776d4229d_photo_34_2026-04-27_01-35-51.jpg"
+                alt="Adorne outlets with USB"
+                style="
+                  width: 100%;
+                  aspect-ratio: 1;
+                  object-fit: cover;
+                  border-radius: 2px;
+                "
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLARE FIREPLACE -->
+    <section style="padding: 6rem 1.5rem; background: #0d0d0d">
+      <div
+        style="
+          max-width: 72rem;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 3rem;
+          align-items: center;
+        "
+      >
+        <div>
+          <p
+            style="
+              font-size: 0.65rem;
+              font-weight: 500;
+              letter-spacing: 0.25em;
+              text-transform: uppercase;
+              color: var(--gold);
+              margin-bottom: 1rem;
+            "
+          >
+            Signature Feature
+          </p>
+          <h2
+            style="
+              font-family: &quot;Cormorant Garamond&quot;, serif;
+              font-size: clamp(2rem, 4vw, 3rem);
+              font-weight: 300;
+              color: white;
+              line-height: 1.2;
+              margin-bottom: 1rem;
+            "
+          >
+            The fireplace that<br /><em
+              style="font-style: italic; color: var(--gold-light)"
+              >defines the room.</em
+            >
+          </h2>
+          <div
+            style="
+              width: 3rem;
+              height: 1px;
+              background: var(--gold);
+              margin-bottom: 1.5rem;
+            "
+          ></div>
+          <p
+            style="
+              font-size: 0.875rem;
+              line-height: 1.7;
+              color: rgba(255, 255, 255, 0.6);
+              margin-bottom: 1rem;
+            "
+          >
+            We are the authorized Flare Modern Fireplaces dealer for the
+            Bellingham and Eastside markets. Linear, see-through, single-sided —
+            Flare fireplaces are architectural statements, not afterthoughts.
+          </p>
+          <p
+            style="
+              font-size: 0.875rem;
+              line-height: 1.7;
+              color: rgba(255, 255, 255, 0.6);
+              margin-bottom: 1rem;
+            "
+          >
+            Jennifer designs around them. She'll plan the tile surround, the
+            hearth material, the mantle profile, and the accent lighting so the
+            fireplace reads as a complete composition — not just a box in a
+            wall.
+          </p>
+          <p
+            style="
+              font-size: 0.875rem;
+              line-height: 1.7;
+              color: rgba(255, 255, 255, 0.6);
+              margin-bottom: 2rem;
+            "
+          >
+            We handle full installation — gas line, venting, surround, and smart
+            home integration so you can set the flame height from your phone.
+          </p>
+          <a
+            href="https://calendly.com/flashgordonplumbing/new-meeting"
+            target="_blank"
+            rel="noopener"
+            class="btn-primary"
+            >Ask About a Fireplace</a
+          >
+        </div>
+        <div
+          style="
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+          "
+        >
+          <iframe
+            src="https://player.vimeo.com/video/269665958?h=339f160d82&autoplay=0&title=0&byline=0&portrait=0&color=C9A96E"
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            "
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title="Flare Modern Fireplaces — Flash Gordon Installation"
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section style="padding: 6rem 1.5rem; background: var(--warm-white)">
+      <div
+        style="
+          max-width: 72rem;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 3rem;
+          align-items: start;
+        "
+      >
+        <div>
+          <p class="section-eyebrow">What We Do</p>
+          <h2 class="section-headline">
+            Fast turnarounds.<br /><em>Unforgettable results.</em>
+          </h2>
+          <div class="divider-gold"></div>
+          <p
+            style="
+              font-size: 0.875rem;
+              line-height: 1.7;
+              color: #6b7280;
+              max-width: 20rem;
+            "
+          >
+            We focus on high-impact transformations that can be designed and
+            built in days, not months. Because life is too short to live in a
+            bathroom you don't love.
+          </p>
+        </div>
+        <div>
+          <div class="service-card">
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start">
+              <span class="service-number">01</span>
+              <div>
+                <h3 class="service-title">Curbless Shower Transformation</h3>
+                <p class="service-desc">
+                  From demo to done in 5–10 days. We remove the curb, set a
+                  custom-sloped mud bed, lay large-format tile, and install
+                  frameless glass. The result looks like a high-end hotel —
+                  permanently.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start">
+              <span class="service-number">02</span>
+              <div>
+                <h3 class="service-title">Bathroom Facelift</h3>
+                <p class="service-desc">
+                  New vanity, new fixtures, new tile, new lighting — all
+                  coordinated by Jennifer into a unified design. We can
+                  transform the look of an entire bathroom in under two weeks.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start">
+              <span class="service-number">03</span>
+              <div>
+                <h3 class="service-title">Designer Lighting Upgrade</h3>
+                <p class="service-desc">
+                  A full lighting redesign: recessed layout, under-counter
+                  strips, toe-kick, accent, art lighting, and LeGrand Adorne
+                  dimmers — all installed by a master electrician and designed
+                  as a complete system.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="service-card">
+            <div style="display: flex; gap: 1.5rem; align-items: flex-start">
+              <span class="service-number">04</span>
+              <div>
+                <h3 class="service-title">Full Master Bath Renovation</h3>
+                <p class="service-desc">
+                  Full custom renovation projects — complete design and build.
+                  Freestanding soakers, curbless walk-in showers, matched marble
+                  floor-to-ceiling, custom vanities. Two to four weeks start to
+                  finish.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS / PROCESS -->
+    <section style="padding: 6rem 1.5rem; background: var(--cream)">
+      <div style="max-width: 60rem; margin: 0 auto">
+        <div style="text-align: center; margin-bottom: 3.5rem">
+          <p class="section-eyebrow">How It Works</p>
+          <h2 class="section-headline" style="text-align: center">
+            Transparent process.<br /><em>No surprises. Ever.</em>
+          </h2>
+          <div class="divider-gold" style="margin: 1.5rem auto"></div>
+          <p
+            style="
+              font-size: 0.875rem;
+              color: #6b7280;
+              max-width: 36rem;
+              margin: 0 auto;
+            "
+          >
+            Great design takes time and expertise. We charge for our design work
+            because Jennifer's eye is worth it — and because serious clients
+            deserve a serious proposal, not a napkin sketch.
+          </p>
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+          "
+        >
+          <div class="pricing-card">
+            <div
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-size: 3rem;
+                font-weight: 300;
+                color: var(--gold);
+                margin-bottom: 1rem;
+              "
+            >
+              1
+            </div>
+            <h3
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-size: 1.25rem;
+                color: var(--walnut);
+                margin-bottom: 0.5rem;
+              "
+            >
+              Design Consultation
+            </h3>
+            <p
+              style="
+                font-size: 0.7rem;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 0.75rem;
+              "
+            >
+              1 Hour · Paid
+            </p>
+            <p
+              style="
+                font-size: 0.875rem;
+                color: #6b7280;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+              "
+            >
+              A full hour with Jennifer and Gordon. We review your space, learn
+              what you love, discuss materials, scope, and budget. You walk away
+              with clear direction.
+            </p>
+            <p style="font-size: 0.75rem; color: #9ca3af; font-style: italic">
+              Consult fee is credited toward your project if you move forward.
+            </p>
+          </div>
+          <div class="pricing-card featured">
+            <div
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-size: 3rem;
+                font-weight: 300;
+                color: var(--gold);
+                margin-bottom: 1rem;
+              "
+            >
+              2
+            </div>
+            <h3
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-size: 1.25rem;
+                color: white;
+                margin-bottom: 0.5rem;
+              "
+            >
+              Design Proposal & Drawings
+            </h3>
+            <p
+              style="
+                font-size: 0.7rem;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 0.75rem;
+              "
+            >
+              Scaled to Project
+            </p>
+            <p
+              style="
+                font-size: 0.875rem;
+                color: rgba(255, 255, 255, 0.7);
+                line-height: 1.6;
+                margin-bottom: 1rem;
+              "
+            >
+              Jennifer produces a complete design concept — material selections,
+              lighting plan, fixture schedule, and computer renderings so you
+              can see exactly what your space will look like.
+            </p>
+            <p
+              style="
+                font-size: 0.75rem;
+                color: rgba(255, 255, 255, 0.4);
+                font-style: italic;
+              "
+            >
+              Drawing fee applied to project cost if you proceed.
+            </p>
+          </div>
+          <div class="pricing-card">
+            <div
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-size: 3rem;
+                font-weight: 300;
+                color: var(--gold);
+                margin-bottom: 1rem;
+              "
+            >
+              3
+            </div>
+            <h3
+              style="
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+                font-size: 1.25rem;
+                color: var(--walnut);
+                margin-bottom: 0.5rem;
+              "
+            >
+              Full Project Build
+            </h3>
+            <p
+              style="
+                font-size: 0.7rem;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 0.75rem;
+              "
+            >
+              Locked Price · One Team
+            </p>
+            <p
+              style="
+                font-size: 0.875rem;
+                color: #6b7280;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+              "
+            >
+              Once you approve the design and the price, we build it. One crew.
+              All trades. Master-certified quality on every element — plumbing,
+              tile, electrical, and finish.
+            </p>
+            <p style="font-size: 0.75rem; color: #9ca3af; font-style: italic">
+              No commitment until you approve the proposal.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section style="padding: 6rem 1.5rem; background: var(--warm-white)">
+      <div style="max-width: 48rem; margin: 0 auto; text-align: center">
+        <div
+          style="
+            font-family: &quot;Cormorant Garamond&quot;, serif;
+            font-size: 4rem;
+            color: rgba(201, 169, 110, 0.4);
+            margin-bottom: 1.5rem;
+          "
+        >
+          "
+        </div>
+        <p class="testimonial-quote" style="margin-bottom: 2rem">
+          Gordon and his team turned our master bath into something out of
+          Architectural Digest. The marble work, the lighting, the details — we
+          had no idea our home could look like this. Jennifer understood what we
+          wanted before we even knew how to say it.
+        </p>
+        <div class="divider-gold" style="margin: 0 auto 1.5rem"></div>
+        <p
+          style="
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--taupe);
+          "
+        >
+          Bellevue Lifestyle Magazine Feature Project
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA — FIX 1: phone corrected to 425-666-2557 -->
+    <section id="consult" class="cta-section" style="padding: 6rem 1.5rem">
+      <div style="max-width: 44rem; margin: 0 auto; text-align: center">
+        <p
+          style="
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+          "
+        >
+          Ready to Start?
+        </p>
+        <h2
+          style="
+            font-family: &quot;Cormorant Garamond&quot;, serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+          "
+        >
+          Let's design something<br /><em
+            style="font-style: italic; color: var(--gold-light)"
+            >you'll never want to leave.</em
+          >
+        </h2>
+        <p
+          style="
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            max-width: 32rem;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Schedule a 60-minute design consultation with Jennifer and Gordon.
+          We'll look at your space, talk about what you love, and give you a
+          clear idea of what's possible — and what it costs.
+        </p>
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+          "
+        >
+          <a
+            href="https://calendly.com/flashgordonplumbing/new-meeting"
+            target="_blank"
+            rel="noopener"
+            class="btn-primary"
+            >Book Design Consult →</a
+          >
+          <!-- FIX 1: was tel:2063372499 "Call 206-337-2499" in original -->
+          <a href="tel:4256662557" class="btn-ghost">Call 425-666-2557</a>
+        </div>
+        <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.3)">
+          Not sure if we're the right fit? Call first — no obligation.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER — FIX 1: phone corrected throughout -->
+    <footer style="padding: 3rem 1.5rem">
+      <div style="max-width: 72rem; margin: 0 auto">
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+          "
+        >
+          <div>
+            <div
+              style="
+                display: flex;
+                align-items: baseline;
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+              "
+            >
+              <span
+                style="
+                  color: white;
+                  font-weight: 700;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                "
+                >Flash Gordon</span
+              >
+              <span
+                style="
+                  color: var(--gold);
+                  font-size: 0.875rem;
+                  letter-spacing: 0.1em;
+                  margin-left: 0.25rem;
+                "
+                >Plumbing & Heating</span
+              >
+            </div>
+            <p
+              style="
+                font-size: 0.75rem;
+                color: rgba(255, 255, 255, 0.4);
+                max-width: 18rem;
+                line-height: 1.6;
+              "
+            >
+              Master-certified plumbing, HVAC, electrical & design services
+              serving Kirkland, Bellevue, and the Greater Eastside.
+            </p>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
+            <div>
+              <p
+                style="
+                  font-size: 0.75rem;
+                  font-weight: 500;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  color: var(--gold);
+                  margin-bottom: 0.75rem;
+                "
+              >
+                Services
+              </p>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0.5rem;
+                "
+              >
+                <li>
+                  <a
+                    href="/"
+                    style="
+                      font-size: 0.75rem;
+                      color: rgba(255, 255, 255, 0.5);
+                      text-decoration: none;
+                    "
+                    >HVAC & Heating</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    style="
+                      font-size: 0.75rem;
+                      color: rgba(255, 255, 255, 0.5);
+                      text-decoration: none;
+                    "
+                    >Tankless Water Heaters</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/Design"
+                    style="
+                      font-size: 0.75rem;
+                      color: rgba(255, 255, 255, 0.8);
+                      text-decoration: none;
+                    "
+                    >Design Services</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <p
+                style="
+                  font-size: 0.75rem;
+                  font-weight: 500;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  color: var(--gold);
+                  margin-bottom: 0.75rem;
+                "
+              >
+                Contact
+              </p>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin: 0;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 0.5rem;
+                "
+              >
+                <!-- FIX 1: corrected from 425-666-2557 (footer was already correct in original) -->
+                <li>
+                  <a
+                    href="tel:4256662557"
+                    style="
+                      font-size: 0.75rem;
+                      color: rgba(255, 255, 255, 0.5);
+                      text-decoration: none;
+                    "
+                    >425-666-2557</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="mailto:flashgordonplumbing@gmail.com"
+                    style="
+                      font-size: 0.75rem;
+                      color: rgba(255, 255, 255, 0.5);
+                      text-decoration: none;
+                    "
+                    >flashgordonplumbing@gmail.com</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+          "
+        >
+          <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.3)">
+            © 2025 Flash Gordon Plumbing & Heating. All rights reserved.
+            Licensed, bonded and insured.
+          </p>
+          <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.2)">
+            Design by Flash Gordon × Jennifer Kudijaroff
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div id="lb-overlay" role="dialog" aria-modal="true">
+      <button id="lb-close" aria-label="Close" onclick="lbClose()">✕</button>
+      <button class="lb-btn" id="lb-prev" onclick="lbNav(-1)">&#8249;</button>
+      <div>
+        <div id="lb-img-wrap"><img id="lb-img" src="" alt="" /></div>
+        <p id="lb-caption"></p>
+        <p id="lb-counter"></p>
+      </div>
+      <button class="lb-btn" id="lb-next" onclick="lbNav(1)">&#8250;</button>
+    </div>
+
+    <script>
+      // ── Mobile menu toggle — FIX 3: added, was completely missing in original ──
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", () => {
+          document.getElementById("mobile-menu").classList.toggle("open");
+        });
+
+      // ── Lightbox ──
+      let lbImages = [];
+      let lbCurrent = 0;
+
+      function buildLbIndex() {
+        lbImages = [];
+        document.querySelectorAll(".gallery-item img").forEach((img, i) => {
+          const caption =
+            img.closest(".gallery-item")?.querySelector(".gallery-caption")
+              ?.textContent ||
+            img.alt ||
+            "";
+          lbImages.push({ src: img.src, caption });
+          img
+            .closest(".gallery-item")
+            .addEventListener("click", () => lbOpen(i));
+        });
+      }
+
+      function lbOpen(index) {
+        lbCurrent = index;
+        lbShow();
+        document.getElementById("lb-overlay").classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function lbClose() {
+        document.getElementById("lb-overlay").classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      function lbNav(dir) {
+        lbCurrent = (lbCurrent + dir + lbImages.length) % lbImages.length;
+        lbShow();
+      }
+
+      function lbShow() {
+        const { src, caption } = lbImages[lbCurrent];
+        document.getElementById("lb-img").src = src;
+        document.getElementById("lb-img").alt = caption;
+        document.getElementById("lb-caption").textContent = caption;
+        document.getElementById("lb-counter").textContent =
+          lbCurrent + 1 + " / " + lbImages.length;
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (!document.getElementById("lb-overlay").classList.contains("active"))
+          return;
+        if (e.key === "ArrowRight") lbNav(1);
+        if (e.key === "ArrowLeft") lbNav(-1);
+        if (e.key === "Escape") lbClose();
+      });
+
+      document.getElementById("lb-overlay").addEventListener("click", (e) => {
+        if (e.target === document.getElementById("lb-overlay")) lbClose();
+      });
+
+      let lbTouchStartX = 0;
+      document.getElementById("lb-overlay").addEventListener(
+        "touchstart",
+        (e) => {
+          lbTouchStartX = e.touches[0].clientX;
+        },
+        { passive: true },
+      );
+      document
+        .getElementById("lb-overlay")
+        .addEventListener("touchend", (e) => {
+          const dx = e.changedTouches[0].clientX - lbTouchStartX;
+          if (Math.abs(dx) > 50) lbNav(dx < 0 ? 1 : -1);
+        });
+
+      // ── Before/After Sliders ──
+      // FIX 5: Logic unchanged from original — only the CSS was relocated to <head>
+      function initSlider(containerId, beforeId, handleId) {
+        const container = document.getElementById(containerId);
+        const beforeDiv = document.getElementById(beforeId);
+        const beforeImg = beforeDiv.querySelector("img");
+        const handle = document.getElementById(handleId);
+        let dragging = false;
+
+        function setPos(pct) {
+          pct = Math.max(2, Math.min(98, pct));
+          const W = container.getBoundingClientRect().width;
+          beforeDiv.style.width = (pct / 100) * W + "px";
+          beforeImg.style.width = W + "px";
+          handle.style.left = pct + "%";
+        }
+
+        function getPct(e) {
+          const rect = container.getBoundingClientRect();
+          const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+          return Math.max(2, Math.min(98, (x / rect.width) * 100));
+        }
+
+        function init() {
+          setPos(50);
+        }
+        if (document.readyState === "complete") {
+          init();
+        } else {
+          window.addEventListener("load", init);
+        }
+
+        handle.addEventListener("mousedown", (e) => {
+          dragging = true;
+          e.preventDefault();
+        });
+        handle.addEventListener("touchstart", () => (dragging = true), {
+          passive: true,
+        });
+        window.addEventListener("mouseup", () => (dragging = false));
+        window.addEventListener("touchend", () => (dragging = false));
+        window.addEventListener("mousemove", (e) => {
+          if (dragging) setPos(getPct(e));
+        });
+        window.addEventListener(
+          "touchmove",
+          (e) => {
+            if (dragging) setPos(getPct(e));
+          },
+          { passive: true },
+        );
+        container.addEventListener("mousedown", (e) => {
+          dragging = true;
+          setPos(getPct(e));
+          e.preventDefault();
+        });
+        container.addEventListener(
+          "touchstart",
+          (e) => {
+            dragging = true;
+            setPos(getPct(e));
+          },
+          { passive: true },
+        );
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        buildLbIndex();
+        initSlider("ba1", "ba1-before", "ba1-handle");
+        initSlider("ba2", "ba2-before", "ba2-handle");
+        initSlider("ba3", "ba3-before", "ba3-handle");
+      });
+    </script>
+  </body>
+</html>
